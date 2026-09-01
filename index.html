@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>Benchmark outils Espagne</title>
+<style>
+:root{--ink:#16181d;--mut:#5c626e;--line:#e3e5ea;--bg:#fff;--soft:#f7f8fa;--acc:#1f4fd8;--warn:#b4341f;--ok:#1a7a4c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:52px 24px 90px}
+.kicker{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);font-weight:600}
+h1{font-size:33px;line-height:1.18;margin:10px 0 12px;letter-spacing:-.02em}
+.sub{color:var(--mut);margin:0 0 36px}
+h2{scroll-margin-top:18px;font-size:21px;margin:56px 0 14px;letter-spacing:-.01em;padding-bottom:9px;border-bottom:1px solid var(--line)}
+h2 .no{color:var(--mut);font-weight:400;margin-right:10px}
+h3{font-size:16.5px;margin:28px 0 7px}
+h4{font-size:14.5px;margin:20px 0 5px;color:var(--mut);letter-spacing:.02em}
+p,li{color:#2a2e37}
+.draft{background:#fff5e6;border:1px solid #f0d9a8;border-radius:8px;padding:13px 16px;margin:0 0 30px;font-size:14px;color:#7a5a12}
+.card{border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin:14px 0;background:#fff}
+.card .lab{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:7px}
+.card.now{border-left:3px solid var(--acc)}.card.now .lab{color:var(--acc)}
+.card.later{border-left:3px solid var(--mut);background:var(--soft)}.card.later .lab{color:var(--mut)}
+.card.ask{border-left:3px solid var(--warn)}.card.ask .lab{color:var(--warn)}
+.card.ok{border-left:3px solid var(--ok)}.card.ok .lab{color:var(--ok)}
+.card h3{margin:0 0 8px;font-size:18px}
+.big{background:#16181d;color:#fff;border-radius:10px;padding:26px;margin:26px 0}
+.big .lab{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#9aa2b1;font-weight:700;margin-bottom:10px}
+.big .n{font-size:38px;font-weight:700;letter-spacing:-.03em;line-height:1.1;margin:0 0 8px}
+.big p{color:#dfe3e9;margin:0;font-size:15px}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+.scroll table{min-width:660px;margin:0}
+th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--mut);font-weight:700}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tot td{font-weight:700;border-top:2px solid var(--ink);border-bottom:none}
+.warn{background:#fbeae7;border:1px solid #f0cfc8;border-left:3px solid var(--warn);border-radius:8px;padding:16px 18px;margin:20px 0}
+.warn p{margin:0 0 8px;color:#7a2415}.warn p:last-child{margin:0}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin:20px 0;font-size:14.5px}
+.note p{margin:0 0 8px}.note p:last-child{margin:0}
+ul.check{list-style:none;padding:0}
+ul.check li{position:relative;padding:8px 0 8px 30px;border-bottom:1px solid var(--line)}
+ul.check li::before{content:"";position:absolute;left:2px;top:14px;width:14px;height:14px;border:1.5px solid var(--mut);border-radius:3px}
+.toc{border:1px solid var(--line);border-radius:10px;padding:18px 22px;background:var(--soft);margin:24px 0 8px}
+.toc ol{margin:0;padding-left:20px}
+.toc li{padding:3px 0;font-size:15px}
+.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.toc a:hover{border-color:var(--acc);color:var(--acc)}
+.sc{display:inline-block;font-variant-numeric:tabular-nums;font-weight:700;padding:1px 9px;border-radius:20px;font-size:13.5px;border:1px solid var(--line)}
+.sc.a{background:#e8f2ec;color:#14603b;border-color:#bcdcca}
+.sc.b{background:#eef2fd;color:#1f3f9e;border-color:#c9d6f6}
+.sc.c{background:#f6eceb;color:#8a3524;border-color:#e6cac4}
+.sc.n{background:var(--soft);color:var(--mut)}
+.fw p{margin:0 0 7px;font-size:14px}.fw p:last-child{margin:0}
+.pf,.pw{display:inline-block;font-size:10px;letter-spacing:.07em;text-transform:uppercase;font-weight:700;padding:1px 6px;border-radius:4px;margin-right:7px;vertical-align:1.5px}
+.pf{background:#e8f2ec;color:#14603b}
+.pw{background:#f6eceb;color:#8a3524}
+footer{margin-top:60px;padding-top:18px;border-top:1px solid var(--line);color:var(--mut);font-size:13px}
+@media (prefers-color-scheme:dark){
+:root:not([data-theme="light"]){--ink:#e8eaee;--mut:#9aa2b1;--line:#2a2e37;--bg:#111318;--soft:#181b21;--acc:#7d9bff;--warn:#ff8a70;--ok:#4fbf8b}
+p,li,td{color:#cdd2da}.card{background:#171a20}.card.later{background:#15181d}
+.draft{background:#241f12;border-color:#4a3d1c;color:#e0c168}
+.warn{background:#2a1512;border-color:#4a221b}.warn p{color:#ffb3a1}
+.big{background:#000}
+.sc.a{background:#12251c;color:#6fd3a2;border-color:#22503a}
+.sc.b{background:#141a2e;color:#9ab4ff;border-color:#2b3a63}
+.sc.c{background:#2a1512;color:#ffab97;border-color:#4a221b}
+.pf{background:#12251c;color:#6fd3a2}
+.pw{background:#2a1512;color:#ffab97}
+.toc a{color:#e8eaee}}
+
+
+:root[data-theme="dark"]{--ink:#e8eaee;--mut:#9aa2b1;--line:#2a2e37;--bg:#111318;--soft:#181b21;--acc:#7d9bff;--warn:#ff8a70;--ok:#4fbf8b}
+p,li,td{color:#cdd2da}.card{background:#171a20}.card.later{background:#15181d}
+.draft{background:#241f12;border-color:#4a3d1c;color:#e0c168}
+.warn{background:#2a1512;border-color:#4a221b}.warn p{color:#ffb3a1}
+.big{background:#000}
+.sc.a{background:#12251c;color:#6fd3a2;border-color:#22503a}
+.sc.b{background:#141a2e;color:#9ab4ff;border-color:#2b3a63}
+.sc.c{background:#2a1512;color:#ffab97;border-color:#4a221b}
+.pf{background:#12251c;color:#6fd3a2}
+.pw{background:#2a1512;color:#ffab97}
+.toc a{color:#e8eaee}}
+</style></head><body><div class="wrap">
+
+<div class="kicker">Slash Intérim &middot; lancement Espagne</div>
+<h1>Benchmark des outils : rapport complet</h1>
+<p class="sub">Yoan Caille, consultant indépendant. <strong>Rapport intermédiaire</strong> : onze éditeurs instruits, trois démonstrations conduites et analysées, neuf domaines couverts du back-office de paie jusqu'aux équipements de protection. Les démonstrations restant à obtenir viendront compléter les parties signalées comme telles.</p>
+
+<div class="draft"><strong>Où en est ce rapport.</strong> La partie ATS est aboutie et permet de décider. La partie ERP reste ouverte : e-OER, seul éditeur à avoir démontré et chiffré son produit, s'est retiré ce matin au motif d'un volume de départ trop petit, et les deux candidats restants n'ont pas encore présenté le leur. Les démonstrations à venir compléteront ce chapitre.</div>
+
+<div class="toc">
+<div class="kicker" style="margin-bottom:8px">Ce que contient ce rapport</div>
+<ol>
+<li><a href="#methode">La méthode</a></li>
+<li><a href="#marche">Le marché espagnol et la lecture en trente secondes</a></li>
+<li><a href="#erp">L'ERP back-office : le choix définitif</a></li>
+<li><a href="#ats">L'ATS et le CRM : le front des conseillers</a></li>
+<li><a href="#peri">Les périphériques : annonces, visites médicales, signature, solvabilité</a></li>
+<li><a href="#scenarios">Les scénarios chiffrés</a></li>
+<li><a href="#grille">La grille d'évaluation</a></li>
+<li><a href="#cdc">Le one-pager traduit en Espagne</a></li>
+<li><a href="#outsiders">Les outsiders et les émergents</a></li>
+<li><a href="#contacts">Les contacts commerciaux</a></li>
+<li><a href="#ouvert">Ce qui reste ouvert</a></li>
+</ol>
+</div>
+
+<h2 id="methode"><span class="no">1</span> La méthode</h2>
+
+<p>Chaque candidat passe d'abord des critères éliminatoires, en tout ou rien. Un seul échec écarte l'éditeur, quel que soit le reste de son dossier. Côté ERP : contrat de mise à disposition au format légal en vigueur, paie avec les convenios colectivos, envois à la Sécurité sociale et au SEPE, éditeur viable à cinq ans, existence d'une API accessible. Côté ATS : workflow d'agence complet, interface en espagnol, API et webhooks accessibles dans le plan visé, sortie propre des données.</p>
+
+<p>Ce n'est qu'ensuite que vient la notation, de 1 à 5, par critère pondéré, avec une règle qui commande tout le reste du rapport :</p>
+
+<div class="note">
+<p><strong>5</strong> = démontré devant moi ou testé par moi &middot; <strong>4</strong> = documenté par écrit &middot; <strong>3</strong> = affirmé par l'éditeur, plausible &middot; <strong>2</strong> = flou ou contradictoire &middot; <strong>1</strong> = absent.</p>
+<p><strong>Une promesse commerciale ne dépasse jamais 3.</strong> Ce qui compte pour la décision doit être vu à l'écran ou écrit au devis.</p>
+</div>
+
+
+
+<p>Enfin, un principe directeur qui a structuré tout le travail : <strong>l'ERP choisi est définitif dès le premier jour.</strong> Tout scénario imposant une remigration plus tard a été exclu, parce qu'une remigration de paie signifie double travail, double formation et risque sur les données historiques.</p>
+
+<h2 id="marche"><span class="no">2</span> Le marché espagnol et la lecture en trente secondes</h2>
+
+<h3>Sept faits qui commandent la décision</h3>
+
+<p><strong>1. Le marché des ERP d'intérim s'est reconfiguré.</strong> Le groupe allemand zvoove a racheté les deux premiers acteurs espagnols, e-Satellite puis NET4. Le duel se joue donc entre NET4, la référence désormais quasi en position dominante, et e-OER, le seul indépendant restant.</p>
+
+<p><strong>2. S'il y a si peu d'éditeurs, c'est arithmétique.</strong> L'Espagne compte 217 ETT autorisées, en érosion continue depuis un pic de 268 en 2018. Personne ne construit un ERP réglementaire complet pour un marché de cette taille. Il ne se crée quasiment aucune ETT nouvelle, le solde net est négatif chaque année depuis 2018. <strong>Un éditeur vient de refuser le dossier</strong> au motif que c'est « trop de travail pour un petit volume ». À volume zéro, vous n'êtes pas un client attractif pour un éditeur d'ERP, et cela s'inverse dès que le volume existe.</p>
+
+<p><strong>3. La conséquence directe : il faut verrouiller le prix avant de signer.</strong> zvoove possède maintenant les deux premiers ERP d'intérim espagnols, et le vertical intérim de l'un est absorbé dans l'autre. Il ne restera qu'un produit là où il y en avait deux, donc plus grand chose pour tirer les prix vers le bas au renouvellement. La parade tient en une ligne et se demande en avant-vente : <strong>conditions tarifaires pluriannuelles et accès à l'API, par écrit, avant signature.</strong></p>
+
+<p><strong>4. Côté front, le paysage vient de bouger : InfoJobs a racheté l'ATS espagnol Viterbit.</strong> Cela fait émerger un scénario « tout intégré espagnol » qui n'existait pas au démarrage du travail.</p>
+
+<p><strong>5. Le vrai poste de coût n'est pas la licence, c'est le sourcing.</strong> InfoJobs domine avec 3,5 fois l'audience d'Indeed, et l'annonce à l'unité vaut 369 € hors packs. La négociation centrale des packs fera le prix réel du pack conseiller, bien plus que le choix d'ATS. Indeed a par ailleurs fermé la publication gratuite aux agences.</p>
+
+<p><strong>6. Les visites médicales sont un poste maîtrisable, mais à challenger sur les délais.</strong> Prix réels constatés sur marchés publics : 47 à 80 € la visite. Un seul contrat national couvre tout le territoire. Le secteur est en pleine concentration, et ce sont les délais réels de rendez-vous qui bloquent une mise à disposition, pas le prix.</p>
+
+<p><strong>7. Une découverte concurrentielle qui dépasse le sujet des outils.</strong> Le modèle du réseau de conseillers indépendants adossé à un siège licencié a déjà un jumeau opérationnel en Espagne. Meditempus, du groupe français Mistertemp', 15 agences et 67 M€ facturés sur son dernier exercice, vend la franchise d'ETT sur la promesse « tú te encargas de la actividad comercial, nosotros del resto », avec 20 k€ d'entrée et 4,5 % de royalties, et annonce ses premières franchises espagnoles. Nexian, environ 30 bureaux, et Quality Temporal vendent aussi la franchise RH.</p>
+
+<h3>Le marché en chiffres</h3>
+<p style="font-size:14px;color:var(--mut);margin-top:-4px">Statistiques officielles du ministère du Travail.</p>
+
+<div class="scroll"><table>
+<tr><th>Indicateur</th><th>Valeur</th><th>Ce que ça change pour Slash</th></tr>
+<tr><td>ETT autorisées</td><td>217, contre 268 au pic de 2018</td><td>Marché d'éditeurs minuscule, donc peu de concurrence entre eux, donc négociation par la rareté du logo</td></tr>
+<tr><td>Contrats de mise à disposition</td><td>4 510 138 sur le dernier exercice, en hausse de 10,7 %, et encore 8,0 % sur les cinq mois suivants</td><td>Moins d'acteurs, plus de volume chacun : le marché se porte bien, l'entrée est ouverte</td></tr>
+<tr><td>Intérimaires</td><td>779 025</td><td>Base de comparaison pour dimensionner les paliers ERP</td></tr>
+<tr><td>Concentration</td><td>Top 5 : 51,3 % du chiffre d'affaires sectoriel &middot; top 10 : 65,8 %</td><td>Le middle market est le terrain réaliste au démarrage</td></tr>
+<tr><td>Où sont les contrats</td><td>Catalogne 18,6 % &middot; Madrid 18,4 % &middot; Communauté valencienne 12,3 % &middot; Murcie 10,2 % &middot; Andalousie 9,6 %</td><td>Détermine où implanter les premiers conseillers et quelle couverture exiger du service de prévention</td></tr>
+<tr><td>Dans quels secteurs</td><td>Industrie 26,6 % &middot; hostelería 20,1 % &middot; transport et logistique 16,6 % &middot; agriculture 14,5 %</td><td>Le généraliste blue collar est exactement là où est le volume, ce qui valide le positionnement et impose WhatsApp comme canal</td></tr>
+</table></div>
+
+<h2 id="erp"><span class="no">3</span> L'ERP back-office : le choix définitif</h2>
+
+<p>C'est la brique qui porte la conformité espagnole : contrats de mise à disposition, paie aux convenios, envois à la Sécurité sociale et au SEPE, reporting à l'autorité du travail, facturation. Elle ne se change pas sans douleur, d'où le principe de la choisir une fois pour toutes.</p>
+
+<h3>Où en sont les cinq candidats</h3>
+
+<div class="scroll"><table>
+<tr><th>Éditeur</th><th>Niveau de preuve</th><th>Point fort et point faible</th><th class="num">Score</th></tr>
+<tr><td><strong>e-OER</strong><br><span style="color:var(--mut);font-size:13.5px">Synderesis / IDI Eikon, Valence, indépendant</span></td><td><strong>Démontré à l'écran</strong>, plus d'une heure, prix annoncés oralement. <strong>Retiré du panel à sa propre initiative</strong> le matin de cette restitution.</td><td class="fw"><p><span class="pf">Fort</span>Périmètre intérim vu en entier, portail client compris. Prix bas et transparents.</p><p><span class="pw">Faible</span>Ne veut pas du dossier : « trop de travail pour un petit volume ». Interface datée, compétence rare, Espagne uniquement.</p></td><td class="num"><span class="sc b">65</span></td></tr>
+<tr><td><strong>NET4</strong><br><span style="color:var(--mut);font-size:13.5px">Nivel IV, Vigo, groupe zvoove</span></td><td><strong>Trois réponses écrites</strong> obtenues le matin de cette restitution. Toujours aucune démonstration, aucun prix.</td><td class="fw"><p><span class="pf">Fort</span>Les références les plus lourdes du pays, un connecteur Viterbit décrit par écrit et en temps réel, la récupération automatique des arrêts de travail, et un déploiement dédié qui rend l'automatisation des envois plausible.</p><p><span class="pw">Faible</span>Aucun prix, et aucune démonstration. Consolidateur en position dominante : tarifs à verrouiller.</p></td><td class="num"><span class="sc n">n. é.</span></td></tr>
+<tr><td><strong>Zucchetti BAS Nómina</strong><br><span style="color:var(--mut);font-size:13.5px">ex-Arión, groupe italien Zucchetti</span></td><td><strong>Documentaire uniquement</strong>, aucune démonstration obtenue.</td><td class="fw"><p><span class="pf">Fort</span>Seul à avoir la paie Espagne et Italie, plus son propre ATS.</p><p><span class="pw">Faible</span>Aucun module intérim espagnol documenté. Prix non publics.</p></td><td class="num"><span class="sc n">n. é.</span></td></tr>
+<tr><td><strong>e-Satellite</strong><br><span style="color:var(--mut);font-size:13.5px">Freemática, groupe zvoove</span></td><td><strong>Sans objet</strong>, écarté.</td><td class="fw"><p><span class="pf">Fort</span>API REST publique et documentée, la seule du panel.</p><p><span class="pw">Faible</span>Vertical intérim absorbé par NET4, du même groupe.</p></td><td class="num"><span class="sc n">&mdash;</span></td></tr>
+<tr><td><strong>SGL Software</strong></td><td><strong>Sans objet</strong>, écarté.</td><td class="fw"><p><span class="pf">Fort</span>Aucun vérifiable : plus de cent ETT revendiquées, aucune nommée.</p><p><span class="pw">Faible</span>Produit en fin de vie, aucune API.</p></td><td class="num"><span class="sc n">&mdash;</span></td></tr>
+</table></div>
+
+<div class="card ok">
+<div class="lab">Retiré du panel</div>
+<h3>e-OER : démontré, chiffré, et parti</h3>
+<div class="warn"><p><strong>Ce candidat s'est retiré le matin de cette restitution</strong>, par écrit : « ese modelo que me planteas no nos interesa [...] mucho trabajo para un volumen pequeño y con complicaciones. Descártanos del pool de proveedores. »</p>
+<p>Ce qui suit reste utile à deux titres. C'est la seule description vérifiée à l'écran de ce que fait un ERP d'intérim espagnol, donc le meilleur étalon pour juger les autres. Et ses prix sont les seuls du marché qu'on connaisse, donc le seul repère pour négocier.</p></div>
+<h4>Ce qui a été vu en démo</h4>
+<p>Le contrat de mise à disposition, le contrat de travail et les documents obligatoires se génèrent automatiquement depuis le devis accepté. Base de convenios intégrée, tarification au coefficient ou à la marge avec recalcul du prix de vente en direct, facturation automatique depuis les relevés d'heures.</p>
+<p><strong>Et les deux portails, qui sont exactement ce que décrit votre one-pager.</strong> Portail employé avec signature et bulletins de paie. Portail client où l'entreprise utilisatrice valide les heures et <strong>approuve, refuse et signe le contrat de mise à disposition</strong>. La validation à deux niveaux est visible à l'écran.</p>
+<h4>Les prix obtenus en démo</h4>
+<p>L'unité facturée est le travailleur, pas l'utilisateur. Socle de <strong>400 à 500 € par mois couvrant 200 travailleurs</strong>, mise en service de <strong>3 000 à 4 000 €</strong>, plus <strong>environ 12 € par mois et par conseiller</strong>. Annoncé « flexible et négociable », plancher ferme à 400 €.</p>
+<h4>Les trois réserves</h4>
+<p><strong>Le dépôt administratif reste à la main.</strong> e-OER génère les fichiers pour la Sécurité sociale et le SEPE, la gestionnaire les dépose elle-même. Sur la voie qu'emprunte un logiciel de paie, aucun ne transmet lui-même. Il produit les fichiers, et c'est SILTRA, l'application de la Trésorerie générale installée chez le client, qui les transmet. Pour que le passage de relais soit automatique, les deux doivent partager le même serveur, ce qui suppose une machine dédiée. e-OER étant hébergé en mutualisé, c'est impossible par construction : <strong>une conséquence de son mode d'hébergement, pas une lacune du produit</strong>, et c'est exactement là que se sépare le concurrent restant, qui déploie sur serveur dédié. Coût réel de la manipulation : quelques minutes par jour au siège.</p>
+<p><strong>La compétence est rare</strong>, l'éditeur le dit lui-même : peu de gens maîtrisent l'outil et ils sont très recherchés.</p>
+<p><strong>L'interface est datée</strong> et assumée comme telle. Acceptable pour un back-office tenu par deux personnes, ce le serait moins pour un outil de conseiller.</p>
+<h4>Les trois conditions avant toute signature</h4>
+<p>Le prix au palier bas, puisque Slash démarre à zéro travailleur et non à 200. Le coût de sortie : format d'export, délai, préavis. Et l'existence d'un connecteur avec l'ATS retenu, le point le plus fragile du scénario.</p>
+</div>
+
+<div class="card ask">
+<div class="lab">Reste à évaluer</div>
+<h3>NET4 : la référence du marché</h3>
+<h4>Ce qu'il couvre, documenté</h4>
+<p>Plus de 300 000 bulletins de paie par mois, avec un service dédié à la mise à jour des convenios. Sécurité sociale, SEPE, Contrat@, Certific@ et modèles fiscaux natifs. Signature électronique intégrée, plus de 500 000 documents par mois, ce qui supprime un contrat de signature séparé. Portails web, application mobile en marque blanche, et une IA maison qui fait le pointage par WhatsApp. <strong>Déployé soit sur votre serveur, soit sur un serveur Azure dédié à votre entreprise</strong>, jamais en hébergement mutualisé. Ils dimensionnent d'emblée pour du multi-sites.</p>
+<p><strong>Références intérim :</strong> CRIT, RAS, Grupo Constant, Nortempo, Grupo Temporing, Marlex, Hays, et Meditempus, le franchiseur décrit au chapitre 2 comme votre concurrent le plus proche. Environ 4 000 utilisateurs par jour. Vingt-six personnes à Vigo, adossées à un groupe de 970 salariés qui traite 24 milliards d'euros de paie par an.</p>
+<h4>Ce qu'ils ont confirmé par écrit</h4>
+<p><strong>Le connecteur avec Viterbit, décrit précisément.</strong> Les demandes de candidats ouvrent automatiquement les processus de sélection dans l'ATS ; les candidats retenus s'insèrent automatiquement dans NET4, rattachés à la demande, avec mise à jour de leur statut en temps réel côté ATS. <strong>Temps réel, maintenu par NET4, coût à la charge du client</strong>, montant non communiqué. C'est la première description écrite de ce raccordement, et elle vient du second des deux éditeurs concernés.</p>
+<p><strong>Le cloisonnement entre conseillers.</strong> Sécurité et accès paramétrables « jusqu'au niveau du champ dans le formulaire », déclarés sans réserve. Affirmation commerciale, jamais démontrée.</p>
+<p><strong>Les envois à l'administration, avec une distinction à faire.</strong> La <em>génération</em> des fichiers est entièrement automatique et sans intervention de l'utilisateur, contrats de travail et contrats de mise à disposition compris. Ce n'est pas un différenciateur : l'autre éditeur générait aussi automatiquement.</p>
+<p>En revanche ils décrivent un flux entrant que personne d'autre n'a montré : <strong>les arrêts de travail sont récupérés depuis la Sécurité sociale et créent automatiquement l'incidence dans l'outil.</strong> Si c'est démontré, c'est un vrai gain quotidien pour le siège.</p>
+<p><strong>Sur l'envoi sortant, ils affirment l'automatisation sans nommer le mécanisme.</strong> Elle devient pourtant plausible dès qu'on regarde leur architecture : ils proposent soit une installation sur votre serveur, <strong>soit un serveur Azure dédié à votre entreprise</strong>, et non un hébergement mutualisé. Sur une machine dédiée, le certificat digital de la société peut résider là où tournent les envois. C'est exactement ce qui manque à un logiciel mutualisé, et c'est la raison que l'autre éditeur avait donnée pour son dépôt manuel.</p>
+<p><strong>Le clivage n'est donc pas le cloud contre l'installation chez vous, c'est le dédié contre le mutualisé.</strong> Reste à faire écrire où réside le certificat, qui l'installe, et qui répond si un envoi échoue. Et à faire chiffrer le serveur dédié, qui se facture.</p>
+<h4>Ce qu'il coûterait, à titre indicatif</h4>
+<p>Aucun devis n'a été obtenu. Deux signaux : le rapport entre son chiffre d'affaires et sa base clients situe une ETT cliente autour de <strong>600 à 1 250 € par mois</strong>, et sur son marché historique le groupe pratique une mise en service de <strong>5 000 à 15 000 €</strong> avec un engagement de 12 à 24 mois. À traiter comme un ordre de grandeur, pas comme une offre.</p>
+<h4>Ce qui n'est pas documenté, et qui compte</h4>
+<p><strong>Le reporting mensuel à l'autorité du travail et la déclaration des accidents.</strong> Ce sont deux obligations légales sans équivalent français, et rien n'est publié dessus. Ce sont les deux premières questions à poser.</p>
+<p><strong>Le coût d'activation du connecteur.</strong> Son périmètre et son fonctionnement sont maintenant décrits, mais le montant reste inconnu, alors qu'il est explicitement à votre charge.</p>
+<p><strong>Sa politique tarifaire au renouvellement.</strong> Le groupe détient désormais les deux premiers produits du marché espagnol : il n'y aura plus grand monde en face pour tirer les prix. Prix pluriannuels et accès API se verrouillent par écrit avant signature, pas après.</p>
+</div>
+
+<div class="card">
+<div class="lab">Outsider</div>
+<h3>Zucchetti : les deux briques chez un même éditeur</h3>
+<h4>Ce qui le rend unique</h4>
+<p>C'est le seul éditeur à proposer <em>en Espagne</em> à la fois un ERP de paie et son propre ATS. zvoove possède également les deux, mais son ATS n'est pas commercialisé en Espagne, comme établi plus haut. Et le seul à avoir une paie native <strong>en Espagne et en Italie</strong>, avec plus de deux cents conventions collectives italiennes couvertes et un ATS disponible en huit langues. Ses références de paie espagnole sont les plus lourdes du marché : Adecco, Randstad, Gi Group, Nortempo. Le produit espagnol vient d'un éditeur né du travail temporaire, racheté par le groupe, et sa refonte entièrement web a été financée par le groupe.</p>
+<h4>Ce qui n'est pas documenté, et c'est beaucoup</h4>
+<p>Rien de public sur le contrat de mise à disposition au format obligatoire, ni sur le reporting mensuel à l'autorité du travail, ni sur la déclaration des accidents. <strong>Ce sont les trois obligations qui définissent le métier d'ETT en Espagne.</strong> Côté ATS, ni InfoJobs ni WhatsApp ne sont documentés, et ce sont les deux critères qui ont classé tout le panel. Aucun prix des deux côtés, aucune démonstration obtenue.</p>
+<p>Son ATS, lui, a été vu en démonstration, et il retire l'essentiel de la promesse. <strong>L'éditeur y déclare de lui-même ne pas être un CRM</strong> : « on ne se vend pas vraiment comme un CRM, on n'est pas un Salesforce qui permet d'avoir ses pipelines de prospects ». Sa multidiffusion ne contient aucun InfoJobs, vérifié à l'écran. Et ses commandes clients n'ont ni taux, ni coefficient, ni volume d'heures : ce sont des commandes de recrutement, pas de mise à disposition.</p>
+<p><strong>Surtout, le raccordement vers la paie n'est pas un connecteur livré.</strong> Interrogé, l'éditeur décrit un développement à cadrer entre les deux éditeurs, à inscrire dans leur feuille de route, avec des délais qu'il annonce lui-même longs. L'argument « même éditeur, donc zéro maillon » ne résiste pas à la démonstration.</p>
+<h4>Un doute à lever avant tout le reste</h4>
+<p>Un éditeur concurrent affirme que le groupe « a un logiciel en Espagne et un autre » ailleurs, et que son discours international ne recouvre pas un produit unique. C'est l'affirmation d'un concurrent, elle vaut ce qu'elle vaut, mais elle se vérifie en une question directe. Si elle est exacte, l'argument multi-pays perd sa substance et le couplage entre l'ATS et l'ERP reste à prouver produit par produit.</p>
+<h4>Ce qui le ferait basculer en tête</h4>
+<p>Une seule chose : <strong>que la Belgique ou l'Italie deviennent un engagement et non une hypothèse.</strong> À ce moment-là, il devient le seul candidat dont l'architecture suit votre expansion. Tant que l'Espagne est seule au programme, il reste un outsider dont rien n'a été vu.</p>
+</div>
+
+<h3>Le tout-en-un zvoove n'existe pas en Espagne</h3>
+<p>Le groupe possède un ATS pour agences d'intérim, Cockpit, leader du marché néerlandais. La question méritait d'être posée, parce qu'un ATS et un ERP du même éditeur supprimeraient le raccordement à construire, donc une ligne de budget et un risque. <strong>La réponse est non, et elle est solide.</strong></p>
+<p>La page pays du groupe, qui liste ses produits marché par marché, ne nomme pour l'Espagne que Freemática et Nivel IV. Cockpit n'y figure que sous l'Allemagne et les Pays-Bas. Le communiqué de rachat en Espagne dit la même chose autrement : le groupe y offrira « deux plateformes distinctes, adaptées aux besoins locaux », soit deux ERP, sans ATS et sans convergence annoncée.</p>
+<p>Le rythme de déploiement confirme. Cockpit est un produit néerlandais, lancé en Allemagne un an après son rachat, puis en Autriche et en Suisse. Un marché germanophone à la fois. Ses pages produit ne nomment aucun jobboard et ne mentionnent ni l'Espagne ni l'espagnol : un connecteur InfoJobs serait donc un développement entier. Le même schéma vient de se rejouer avec la dernière acquisition du groupe, un agent d'onboarding par WhatsApp, annoncé pour les clients suisses.</p>
+<div class="note"><p><strong>Et c'est NET4 lui-même qui tranche la question, dans son propre discours commercial.</strong> Sa page produit énonce ses intégrations mot pour mot : « Nivel IV se integra con tu ATS (Viterbit, Bizneo, ePreselect...), con Google Jobs, con plataformas como Serviconvenios y con ERPs contables como SAP. » Il se présente donc comme l'ERP qui se branche sur les ATS des autres, et il nomme Viterbit en premier.
+</p><p>Cette phrase travaille dans les deux sens. Elle appuie le scénario recommandé, et elle affaiblit le scénario Zoho, <strong>puisque Zoho n'y figure pas</strong> : côté Zoho non plus, aucun ERP espagnol n'apparaît dans sa liste d'intégrations. Le scénario recommandé n'est donc pas un contournement faute de mieux, <strong>c'est exactement l'architecture que NET4 vend.</strong></p></div>
+<p>Ce que ça change pour la décision : l'architecture à trois briques est confirmée, il n'existe aucun raccourci tout-en-un de ce côté, et une incertitude se referme au lieu de rester ouverte. Sous réserve d'une feuille de route non publiée, que seul NET4 pourrait révéler.</p>
+
+<h3>La question qui reste posée à NET4</h3>
+<p><strong>Un argument de négociation qu'il ne faut pas laisser passer.</strong> Le même groupe possède aux Pays-Bas HelloFlex People, qui fait tourner 125 intermédiaires sur un modèle où l'entrepreneur fait le commercial et la plateforme porte la paie et le juridique. C'est votre modèle, opéré par leur propre groupe. La question devient simple à poser : votre groupe fait exactement cela aux Pays-Bas, qu'est-ce qui existe pour l'Espagne ?</p>
+<div class="note"><p><strong>Et la question technique, dans la seule forme qui ne peut pas recevoir un simple oui :</strong> quand NET4 est hébergé sur votre cloud, où réside le certificat digital de l'entreprise, qui l'installe, et qui répond si un envoi échoue ? La réponse détermine si l'automatisation des envois est réelle ou si elle repose sur une manipulation quotidienne du siège.</p></div>
+
+<h3>La lecture internationale</h3>
+<div class="note">
+<p><strong>Le constat, vérifié sur quinze candidats : l'ERP d'intérim unique couvrant Espagne, Belgique et Italie n'existe pas.</strong> La paie d'intérim est nationale par construction, parce que les convenios espagnols, les commissions paritaires belges et les CCNL italiens sont des objets juridiques différents. Le monde réel fonctionne en groupes consolidateurs à produits nationaux, ou en front international branché sur des moteurs de paie locaux, un montage qui n'existe officiellement qu'au Royaume-Uni et aux Pays-Bas.</p>
+<p><strong>Autrement dit, l'architecture que vous avez choisie est exactement ce que font les meilleurs :</strong> une plateforme commune, un back-office national par pays, un middleware entre les deux.</p>
+<p><strong>Conséquence pour la décision : choisir un ERP espagnol n'hypothèque rien pour la suite.</strong> Le jour où la Belgique s'ouvre, les candidats sont Prato, Easypay ou BrightStaffing. Pour l'Italie, WhiteNet de Workare tient plus de 40 % des agences. La couche commune et le savoir-faire d'intégration se réutilisent d'un pays à l'autre.</p>
+</div>
+<p>Deux exceptions. <strong>zvoove</strong> opère dans dix pays, mais ni en Belgique ni en Italie, et ses verticaux de paie restent nationaux : ouvrir un pays revient pour lui à construire ou racheter un produit local. <strong>Zucchetti</strong> est le seul rival international sur vos trois pays, avec une paie native en Espagne et en Italie et des références intérim lourdes. Mais un concurrent affirme, et c'est plausible, que Zucchetti « a un logiciel en Espagne et un autre » ailleurs, ce qui viderait l'argument multi-pays de sa substance. C'est à vérifier auprès d'eux, pas ailleurs.</p>
+
+<h3>Ce qui a été écarté</h3>
+<p>La carte du marché est close, et elle a été contre-vérifiée deux fois, dont une par méthode inversée : au lieu de chercher qui se vend aux ETT, j'ai cherché ce que les ETT espagnoles font réellement tourner, plus les rachats et renommages, plus les moteurs de paie généralistes à références intérim. Une seule découverte est sortie de cette seconde passe, Zucchetti, déjà au comparatif. Il n'y a pas de vertical intérim caché.</p>
+<p>Sont écartés : <strong>Wolters Kluwer a3, Sage, Cegid</strong>, paie généraliste sans contrat de mise à disposition ni reporting intérim &middot; <strong>Bullhorn Pay&amp;Bill, Pixid, Coffreo</strong>, absents de la paie espagnole &middot; <strong>NetSuite, SAP, Dynamics</strong>, ni paie espagnole ni vertical intérim &middot; <strong>Kronjop</strong>, qui n'est pas un ERP d'intérim et dont la société est immatriculée bien après la date d'ancienneté affichée sur son site &middot; <strong>Factorial</strong>, structure intéressante mais aucune mention de mise à disposition ni de reporting à l'autorité du travail.</p>
+<p>Un piège à connaître : des sociétés d'outsourcing informatique, parfois de mille salariés, tournent sur des ERP généralistes et servent d'exemple à qui veut vous vendre l'un d'eux. Ce ne sont pas des ETT. Elles font des contrats de prestation, pas de la mise à disposition, donc ni contrat de mise à disposition, ni reporting à l'autorité du travail, ni paie à rotation rapide. <strong>Et le détail qui tranche : celles que j'ai pu observer de près sortent la paie de leur ERP pour la confier à un prestataire externe.</strong> Une société espagnole de mille salariés n'arrive pas à faire porter sa paie par un ERP généraliste : c'est la démonstration la plus nette que la paie espagnole est un métier à part.</p>
+
+<h2 id="ats"><span class="no">4</span> L'ATS et le CRM : le front des conseillers</h2>
+
+<p>Contrairement à l'ERP, ce choix est transitoire et résiliable. C'est aussi le plus urgent, parce que les conseillers doivent trouver des candidats avant qu'il y ait quoi que ce soit à facturer.</p>
+
+<div class="warn">
+<p><strong>Le meilleur ATS espagnol n'a aucune fonctionnalité de CRM commercial.</strong> C'est le fait qui change la structure du pack, et il a été vu en démo.</p>
+<p>Pas de comptes clients, pas de pipeline de prospection, pas de commandes clients, pas de suivi de marge, pas de relances commerciales. Ce n'est pas un manque ponctuel, c'est structurel.</p>
+<p>Conséquence directe : <strong>le pack ne se compose pas de deux briques mais de trois.</strong> Un ATS pour les candidats, un ERP pour la paie, et entre les deux un CRM, c'est à dire l'endroit où un conseiller suit les entreprises qu'il démarche avant qu'elles ne signent. <strong>Et la question n'est pas pour un éditeur, elle est interne à Slash.</strong> Votre plateforme sait déjà créer un prospect depuis son numéro d'entreprise et vérifier son assurabilité, puis gérer le client, ses commandes et ses contrats. <strong>Porte-t-elle aussi les étapes du démarchage, les relances et les tâches datées ?</strong> C'est cette bande étroite qu'il faut combler, et elle seule.</p>
+<p><strong>Mais le trou est plus petit qu'il n'y paraît, et ça change ce qu'il faut acheter.</strong> La fiche client, les commandes et la facturation sont chez l'ERP ; le coefficient et la marge aussi. Ce qui manque vraiment tient en trois fonctions : <strong>le prospect, les étapes commerciales, et les relances avec échéance.</strong> C'est un petit outil, pas un Salesforce, et cela ouvre une troisième voie à côté de la plateforme et de l'abonnement : le développer, ce qui évite une licence par conseiller et garde le code et les données chez Slash.</p>
+</div>
+
+<h3>Le comparatif noté</h3>
+
+<div class="scroll"><table>
+<tr><th>Critère</th><th class="num">Poids</th><th class="num">Viterbit</th><th class="num">Zoho Staffing</th><th class="num">Manatal</th><th class="num">In-recruiting</th></tr>
+<tr><td>Sourcing Espagne : InfoJobs en publication et en CVthèque, Indeed, parsing espagnol</td><td class="num">20</td><td class="num">16</td><td class="num">8</td><td class="num">8</td><td class="num">8</td></tr>
+<tr><td>API et webhooks, intégration ERP réelle</td><td class="num">25</td><td class="num">25</td><td class="num">15</td><td class="num">10</td><td class="num">10</td></tr>
+<tr><td>CRM commercial : comptes clients, pipeline, commandes, marge</td><td class="num">15</td><td class="num">3</td><td class="num">15</td><td class="num">12</td><td class="num">9</td></tr>
+<tr><td>Coût par conseiller, à 10 puis à 30</td><td class="num">15</td><td class="num">6</td><td class="num">12</td><td class="num">9</td><td class="num"><strong>?</strong></td></tr>
+<tr><td>Expérience conseiller : prise en main, mobile, WhatsApp</td><td class="num">10</td><td class="num">10</td><td class="num">8</td><td class="num">4</td><td class="num">8</td></tr>
+<tr><td>Fit du modèle mandataire : gestion par des tiers, workflow agence, validation siège</td><td class="num">15</td><td class="num">15</td><td class="num">9</td><td class="num">6</td><td class="num">9</td></tr>
+<tr class="tot"><td>Score sur 100</td><td class="num">100</td><td class="num"><span class="sc a">75</span></td><td class="num"><span class="sc b">67</span></td><td class="num"><span class="sc c">49</span></td><td class="num"><span class="sc c">44 à 59</span></td></tr>
+</table></div>
+
+<p style="font-size:14px;color:var(--mut)"><strong>Ce comparatif est un état intermédiaire.</strong> Un « ? » signale une information qui n'existe pas encore, et non une fonction absente : le score devient alors une fourchette, entre l'acquis et le maximum du critère. Ces cases se rempliront avec les démonstrations à venir, et le classement peut encore bouger.</p>
+<p style="font-size:14px;color:var(--mut)">Quatre candidats sont notés : ceux sur lesquels il existe assez de matière pour le faire. <strong>Manatal y figure bien qu'il soit écarté</strong>, parce qu'il a été noté avant que ses obstacles structurels n'apparaissent, et son score dit exactement pourquoi il l'est. Mainder n'y figure pas, faute de la moindre observation directe. Un candidat mal noté ici n'est pas un mauvais produit : c'est un produit qui n'a pas prouvé ce que la grille demande.</p>
+
+<div class="note">
+<p><strong>La pondération a été révisée en cours de route, et c'est mon jugement.</strong> Le CRM commercial est entré comme critère à 15 points, pris sur le sourcing qui passe de 25 à 20 et sur le coût qui passe de 20 à 15. Motif : InfoJobs était devenu tranché pour tout le panel, le CRM ne l'était pas.</p>
+<p>Le point d'appui de la recommandation est donc une conviction : <strong>au démarrage, le goulot d'étranglement est le flux de candidats, pas le pipeline commercial.</strong> Si tu penses l'inverse, le classement change.</p>
+</div>
+
+<div class="card now">
+<div class="lab">Recommandé</div>
+<h3>Viterbit : le meilleur ATS, seul à avoir prouvé le modèle mandataire</h3>
+<p>ATS espagnol, Barcelone, environ quarante personnes, racheté à 100 % par InfoJobs avec maintien des fondateurs et un plan à cinq ans. Page produit dédiée aux agences de recrutement à hauts volumes.</p>
+<h4>Ce qui a été vu en démo</h4>
+<p><strong>InfoJobs natif</strong>, publication et candidatures en temps réel, sans ressaisie. Le rachat récent en fait le canal privilégié du groupe.</p>
+<p><strong>Le modèle mandataire, validé en direct.</strong> Chaque conseiller indépendant a son propre compte, ne voit que ses propres informations, et accède en même temps à la base de candidats commune de Slash. C'est exactement l'architecture hybride que vous décrivez, et Viterbit est le seul du panel à l'avoir montrée plutôt que revendiquée.</p>
+<p><strong>La connexion native avec NET4</strong>, confirmée par Viterbit lui-même et non plus par la seule mention commerciale de l'autre éditeur. C'est le couple espagnol le plus documenté du benchmark.</p>
+<p><strong>WhatsApp comme canal natif</strong>, avec envois en masse, modèles validés, et une IA conversationnelle qui qualifie et inscrit les candidats en continu. Sur des profils blue collar, c'est le canal qui fait la différence entre un candidat joignable et un candidat perdu.</p>
+<p>S'y ajoutent, documentés : API publique avec webhooks configurables, partage de shortlists par lien contrôlé où l'on choisit les informations visibles et la durée d'accès, scraping InfoJobs, multimarque et authentification unique.</p>
+<h4>Ce qui manque</h4>
+<p><strong>Zéro CRM commercial</strong>, comme dit plus haut. Sur le raccordement à un CRM externe, l'éditeur a répondu par écrit : deux de ses agences clientes ont intégré Viterbit à HubSpot, mais <strong>par développement propre, et son équipe technique n'intervient pas dans ces développements sur mesure</strong>. Le précédent existe donc, la faisabilité est prouvée sur un CRM nommé, mais la construction et la maintenance sont entièrement à votre charge, sans filet.</p>
+<p><strong>Le prix est opaque.</strong> 259 € par mois est le plancher affiché. Un benchmark interne d'une consultoría espagnole situe un client réel comparable autour de 7 000 € par an pour l'ATS de base, les modules en supplément, dont l'analytique à environ 3 000 €. La grille par palier de 5, 10, 20 et 30 conseillers n'a pas été communiquée.</p>
+<h4>À verrouiller au contrat</h4>
+<p>La base de candidats reste la propriété de Slash au départ d'un conseiller. C'est une question de gouvernance autant que de technique, et elle se règle avant la signature, pas après.</p>
+</div>
+
+<div class="card">
+<div class="lab">Second, et pas battu</div>
+<h3>Zoho Recruit Staffing : non démontré plutôt que dépassé</h3>
+<p><strong>Je n'ai rien contre Zoho.</strong> Sur le métier d'agence, c'est le produit le plus complet et le plus éprouvé du panel : comptes clients et contacts natifs, commandes liées aux clients, historique d'activités, workflows structurants, portail client en option, rôles et territoires taillés pour une organisation distribuée. Il est surtout <strong>le seul des candidats sérieusement instruits dont le CRM couvre le pipeline de prospection</strong>, qui est le problème structurel de tout le dossier. Manatal et Mainder embarquent aussi un CRM, mais le premier est écarté sur son modèle économique et le second n'a jamais pu être observé. Chez Zoho, le couplage entre Recruit et son CRM est natif et supporté. Chez Viterbit, il faut le développer et personne ne le maintient.</p>
+<h4>Ses deux vrais problèmes</h4>
+<p><strong>InfoJobs.</strong> La publication native est impossible. La seule route vérifiée passe par un agrégateur à 100 à 300 $ par utilisateur et par mois, plus 2 000 à 8 000 $ de mise en service, ce qui n'est pas rentable à votre échelle. C'est un manque produit réel, sur le premier canal de recrutement espagnol.</p>
+<p><strong>La chaîne de distribution.</strong> L'éditeur l'a écrit deux fois : son équipe en Espagne est spécialisée uniquement sur ses produits de gestion commerciale, et les démonstrations en espagnol de sa suite RH sont assurées par son partenaire agréé. Autrement dit, Zoho n'a personne en Espagne pour démontrer son propre ATS.</p>
+<p><strong>Ce n'est pas un motif d'écartement.</strong> Passer par un partenaire agréé est la norme en Espagne, y compris chez Zucchetti et chez la plupart des éditeurs d'ERP, et un partenaire local est souvent plus disponible qu'un bureau éditeur. C'est un critère à instruire, pas une condamnation : qui assure le support sur place, à quel coût, avec quel engagement de délai, et qui porte la responsabilité en cas de problème.</p>
+<h4>Le point à retenir</h4>
+<p>Les notes de 3 de Zoho sur l'API et sur le fit mandataire sont plafonnées par la règle de notation, parce que rien n'a été démontré. <strong>Si une démonstration prouvait ces deux points au niveau où Viterbit les a prouvés, Zoho sortirait à 83 contre 75 pour Viterbit.</strong> Même en restant prudent sur l'API, à 4 plutôt que 5, il sortirait à 78. <strong>Zoho n'est pas battu, il est non démontré.</strong> C'est le seul candidat qui peut encore repasser devant.</p>
+<p><strong>Ses prix, eux, sont publics :</strong> 25 € en Standard, 50 € en Professional, 75 € en Enterprise, par conseiller et par mois en facturation annuelle. Le plan Professional est le premier qui ouvre les webhooks et WhatsApp, c'est donc lui le point de comparaison. Un coût de mise en place par le partenaire est à prévoir en plus, et il n'est pas chiffré : c'est la donnée la plus fragile de sa colonne, et la première à réclamer.</p>
+</div>
+
+<div class="card">
+<div class="lab">Écarté</div>
+<h3>Manatal : écarté pour trois raisons structurelles</h3>
+<p>La configuration agence existe et elle est sérieuse : pipeline commercial en cinq étapes en glisser-déposer, fiche client complète, permissions par rôle et par groupe restreignant la visibilité à des clients précis, portail invité par étape.</p>
+<p><strong>1. Le modèle économique ne correspond pas à l'intérim.</strong> Son module de revenus enregistre un honoraire de placement avec partage de commission entre commercial et recruteur. Il n'y a ni taux horaire, ni coefficient, ni marge par mission, ni volume d'heures. C'est un outil de cabinet de recrutement, pas d'ETT, où la marge se calcule en heures multipliées par un coefficient.</p>
+<p><strong>2. Les données sont hébergées aux États-Unis</strong>, confirmé par écrit par l'éditeur, avec un transfert couvert par clauses contractuelles types, et sans changement possible si un second pays européen ouvre. À son crédit, c'est la réponse la plus précise et la plus honnête du panel sur ce point.</p>
+<p><strong>3. Aucun ancrage espagnol.</strong> InfoJobs a été revendiqué oralement, mais n'apparaît nulle part par écrit : ni à l'écran, ni dans sa documentation, ni dans sa vidéo officielle. WhatsApp se réduit à une redirection vers l'application, sans rien d'enregistré dans la fiche candidat, et l'envoi en masse est impossible. Aucune référence d'intégration ERP : interrogé, l'éditeur n'a pu en citer aucune. Facturation en dollars, à 55 $ par personne et par mois, seul plan ouvrant l'API.</p>
+</div>
+
+<h3>Les sept autres ATS évalués</h3>
+<p>Quatre proviennent d'un benchmark interne d'une consultoría espagnole, re-vérifié depuis, trois ont été instruits directement.</p>
+
+<div class="scroll"><table>
+<tr><th>Outil</th><th>Ce qui le disqualifie ou le sauve</th><th>Verdict</th></tr>
+<tr><td><strong>Mainder</strong><br><span style="color:var(--mut);font-size:13.5px">Barcelone, orienté agents IA</span></td><td>Le seul à réunir CRM inclus, permissions par client et deux références ETT réelles, dont l'un des franchiseurs décrits au chapitre 2 comme votre concurrent. Côté intégration : webhooks et intégrations sur mesure aux plans hauts, mais <strong>aucune API publiquement documentée</strong>, là où Viterbit et Zoho publient la leur. Ses sources de sourcing affichées sont LinkedIn et les réseaux sociaux, la signature du recrutement tech plutôt que du blue collar. Société fragile, 150 k€ de chiffre d'affaires sur son dernier exercice connu, et aucune réponse quand il a été sollicité.</td><td><strong>Non instruit.</strong> À faire démontrer si le CRM doit être acheté à part</td></tr>
+<tr><td><strong>In-recruiting</strong><br><span style="color:var(--mut);font-size:13.5px">Zucchetti, Italie</span></td><td>Le seul ATS du panel qui partage son éditeur avec un ERP de paie espagnol. Bon produit de cabinet : matching dans les deux sens, partage de shortlist par lien, statistiques par canal. <strong>Mais la démonstration a montré trois manques :</strong> aucun InfoJobs dans sa multidiffusion, un WhatsApp non automatisable, et des commandes clients sans taux ni coefficient ni volume d'heures, donc calibrées pour le placement et non pour l'intérim.</td><td><strong>Écarté sur l'ancrage espagnol</strong>, sauf si un second pays devient un engagement</td></tr>
+<tr><td><strong>Bizneo</strong><br><span style="color:var(--mut);font-size:13.5px">ATS espagnol corporate</span></td><td>Multiposting sur 200 portails dont InfoJobs, WhatsApp et chatbot intégrés, bonnes notes utilisateurs. Mais aucun CRM clients ni commandes documenté : c'est du recrutement d'entreprise, pas d'agence.</td><td>Écarté comme ATS d'agence</td></tr>
+<tr><td><strong>ePreselec</strong><br><span style="color:var(--mut);font-size:13.5px">groupe InfoJobs</span></td><td><strong>Le seul ATS intégré nativement à la CVthèque d'InfoJobs</strong>, plus de 8 millions de candidats selon l'éditeur : c'est sa vraie carte, et personne d'autre ne l'a. Mais c'est un ATS d'entreprise, pas d'agence : ni comptes clients, ni commandes, ni CRM, ni WhatsApp. Ses clients affichés sont Seat, DKV, IKEA et Eroski. Technologie ancienne, aucune API publique.</td><td><strong>Écarté sur le workflow d'agence</strong>, pas sur la technique</td></tr>
+<tr><td><strong>Talent Clue</strong><br><span style="color:var(--mut);font-size:13.5px">Barcelone, récemment racheté</span></td><td>Ni InfoJobs officiel, ni WhatsApp, ni CRM, ni API. Rachat en cours d'intégration, feuille de route gelée.</td><td>Écarté</td></tr>
+<tr><td><strong>Team Tailor</strong><br><span style="color:var(--mut);font-size:13.5px">Suède, 12 000 clients</span></td><td>Société très saine et bon produit, mais aucun vertical intérim, pas de CRM commercial, pas de WhatsApp natif, et 25 000 € par an au premier devis constaté.</td><td>Écarté : ne couvre que la moitié candidat du besoin, au prix fort</td></tr>
+<tr><td><strong>Lever</strong><br><span style="color:var(--mut);font-size:13.5px">USA, recrutement interne</span></td><td>Aucune gestion de clients ni de commandes, InfoJobs absent, et surtout un modèle de prix indexé sur l'effectif total de l'entreprise, ce qui serait explosif pour une ETT si les intérimaires sont comptés dedans.</td><td>Écarté</td></tr>
+</table></div>
+
+<h3>Le protocole déroulé à chaque démo</h3>
+<p>Le critère de la gestion par des tiers indépendants n'est pas évaluable sur une plaquette. J'ai donc scripté quatre tests, passés à chaque éditeur, avec Bullhorn comme étalon, seul acteur trouvé qui documente noir sur blanc la visibilité hybride.</p>
+<ol>
+<li><strong>Créer trois conseillers.</strong> A ne doit voir ni les clients ni le pipeline de B, mais doit voir que le candidat partagé X a été proposé par B ailleurs. C'est la règle hybride exacte de votre modèle.</li>
+<li><strong>Ajouter un quatrième conseiller en cours de session.</strong> Nombre de clics, délai, coût du siège supplémentaire.</li>
+<li><strong>Le conseiller A crée une affaire avec conditions tarifaires.</strong> Qui peut la valider, et B peut-il la voir ? Réponse attendue : validation réservée au siège, invisible pour les autres.</li>
+<li><strong>Montrer la grille de facturation.</strong> Que coûte le passage de 10 à 50 conseillers, et existe-t-il un palier réseau ?</li>
+</ol>
+<p>Notation : 5 si les quatre tests passent nativement, 3 s'ils passent au prix d'une configuration lourde, 1 en cas d'échec sur l'un d'eux. Un échec au premier test est éliminatoire dans le scénario où l'ATS est le poste de travail complet. <strong>Viterbit est le seul à l'avoir passé en direct.</strong></p>
+
+<h2 id="peri"><span class="no">5</span> Les périphériques</h2>
+<p>Tout ce qui entoure le duo ERP et ATS, avec des prix vérifiés sur les grilles officielles et les marchés publics espagnols.</p>
+
+<div class="scroll"><table>
+<tr><th>Poste</th><th>Recommandation</th><th>Prix constatés</th></tr>
+<tr><td><strong>Annonces d'emploi</strong></td><td>InfoJobs, numéro un incontesté avec 3,5 fois l'audience d'Indeed et 2,46 millions de postes publiés sur un an. Indeed en second, mais les agences d'intérim sont exclues de l'organique, donc sponsorisé obligatoire.</td><td>InfoJobs : 69 € la première annonce, puis 369 € l'unité. Packs de 3 à 100 annonces simultanées sur devis. <strong>C'est là qu'est la négociation, et c'est le vrai levier de coût du pack.</strong> Indeed sponsorisé : dès 5 €/jour ou 150 €/mois par annonce.</td></tr>
+<tr><td><strong>CVthèques</strong></td><td>InfoJobs en packs, de 700 à 12 000 ouvertures de CV. L'accès depuis un ATS est aujourd'hui réservé à ePreselec, et peut-être demain à Viterbit puisqu'ils appartiennent au même groupe : c'est une question à poser en négociation.</td><td>Packs sur devis. Indeed Smart Sourcing : 120 €/mois pour 30 contacts, 400 €/mois pour 100, par recruteur.</td></tr>
+<tr><td><strong>Visites médicales</strong><br><span style="color:var(--mut);font-size:13.5px">obligatoires avant mise à disposition</span></td><td>Un contrat national unique avec un service de prévention. Trois grands acteurs : Quirónprevención avec 320 centres, Vítaly avec 323 implantations et 110 unités mobiles, ASPY avec plus de 200 délégations.</td><td>47 à 80 € la visite basique sur marchés publics, 65 à 120 € en privé avant remise. <strong>Le point à challenger n'est pas le prix mais le délai :</strong> les engagements types annoncent un rendez-vous sous 15 jours et des résultats sous 15 jours ouvrés, et c'est ce délai qui bloque une mise à disposition. Exiger des pénalités contractuelles.</td></tr>
+<tr><td><strong>Équipements de protection</strong></td><td>Kit de base : chaussures de sécurité, gilet, gants, casque. Refacturation à l'entreprise utilisatrice à négocier au contrat.</td><td>Environ 40 € par travailleur</td></tr>
+<tr><td><strong>Solvabilité client</strong><br><span style="color:var(--mut);font-size:13.5px">la brique « assurabilité » du one-pager</span></td><td>Vérification automatique par numéro d'identification fiscale à la création du client, puis assurance-crédit pour couvrir le risque réel. <strong>Aucun ERP ne l'intègre nativement :</strong> c'est un contrat à part et un contrôle à câbler.</td><td>Vérification : de 0 à 40 €/mois selon le volume de requêtes. Rapport ponctuel : 24 €. Assurance-crédit : 0,1 à 0,6 % du chiffre d'affaires assuré, soit environ 2 500 à 4 500 € par an pour un million d'euros couvert.</td></tr>
+<tr><td><strong>Signature électronique</strong></td><td>Inutile en scénario NET4, qui l'intègre déjà à grande échelle. e-OER a sa signature tripartite. Sinon Firmafy, valide devant le SEPE et l'Inspection du travail.</td><td>14 à 30 €/mois, soit 0,30 à 0,80 € par contrat en volume</td></tr>
+<tr><td><strong>Vérification d'identité</strong><br><span style="color:var(--mut);font-size:13.5px">option pour le parcours intérimaire sans compte</span></td><td>Alice Biometrics, certifiée par le centre cryptologique national espagnol. Tecalis ajoute la signature du contrat dans le même flux.</td><td>0,40 à 0,63 € par vérification, avec un minimum mensuel de 200 à 800 €</td></tr>
+<tr><td><strong>WhatsApp</strong></td><td>Natif dans Viterbit et dans Zoho Recruit Professional : c'est déjà couvert par le choix d'ATS, sans ligne supplémentaire. Sinon un fournisseur local, ou un chatbot dédié.</td><td>Fournisseur local : 89 à 150 €/mois. Coût des messages : environ 0,051 € en marketing, 0,017 € en utilitaire.</td></tr>
+<tr><td><strong>Plateformes de coordination d'activités</strong><br><span style="color:var(--mut);font-size:13.5px">dépôt des certificats d'aptitude chez les clients</span></td><td>Vous ne choisissez pas : chaque client impose la sienne. D'où l'intérêt de privilégier celles qui ont une API documentée, CTAIMA ou Twind, quand le choix se présente.</td><td>80 à 400 €/mois selon la plateforme imposée</td></tr>
+<tr><td><strong>Suivi des aptitudes et des validités</strong></td><td>Un outil gratuit avec alertes d'expiration au démarrage, puis le module de l'ERP quand il arrive.</td><td>Gratuit au démarrage</td></tr>
+</table></div>
+
+<h2 id="scenarios"><span class="no">6</span> Les scénarios chiffrés</h2>
+
+<p>Un scénario ne se juge pas sur ses briques mais sur la <strong>chaîne complète</strong> qui va du CRM à l'ATS puis à l'ERP. Cette chaîne comporte toujours exactement <strong>deux maillons</strong>, et c'est leur état qui distingue les scénarios, pas leur nombre.</p>
+<div class="note">
+<p><strong>Maillon 1, du CRM vers l'ATS.</strong> Quand un client est signé côté commercial, son compte doit apparaître dans l'outil de recrutement sans qu'on le ressaisisse. C'est ce maillon qui disparaît si la plateforme Slash porte elle-même le commercial, ou si l'ATS embarque son propre CRM.</p>
+<p><strong>Maillon 2, de l'ATS vers l'ERP.</strong> Quand un candidat est placé, il doit devenir un contrat, des heures et une paie sans ressaisie. C'est le maillon critique : celui qui a produit la double saisie en France.</p>
+<p>Quatre états possibles pour chacun, du meilleur au pire : <strong>natif</strong> (le même éditeur ou un connecteur livré), <strong>documenté</strong> (l'éditeur décrit le raccordement et le soutient), <strong>annoncé</strong> (affirmé commercialement, sans écrit ni preuve), <strong>à construire</strong> (développement et maintenance à votre charge).</p>
+</div>
+
+<div class="note"><p>C'est exactement le mécanisme qui a produit la double saisie entre votre outil de sourcing et l'ERP en France, et qui vous a poussés à développer votre propre plateforme. C'est le critère qui départage les scénarios.</p></div>
+
+<div class="scroll"><table>
+<tr><th>Scénario</th><th>Composition</th><th>Maillon 1 : CRM vers ATS</th><th>Maillon 2 : ATS vers ERP</th><th>Avantage et inconvénient</th></tr>
+<tr><td><strong>A</strong></td><td>CRM porté par la plateforme Slash<br>+ Viterbit + NET4</td><td><strong>À construire</strong><br><span style="color:var(--mut);font-size:13.5px">plateforme Slash vers Viterbit, sur l'API publique de l'ATS, par votre équipe</span></td><td><strong>Documenté des deux côtés</strong><br><span style="color:var(--mut);font-size:13.5px">flux décrits par écrit par NET4 : demandes et candidats, en temps réel, connecteur maintenu par eux, coût à votre charge et non chiffré</span></td><td class="fw"><p><span class="pf">Pour</span>Le CRM ne coûte rien et le conseiller reste dans une seule interface.</p><p><span class="pw">Contre</span>Suspendu à une réponse interne, et le lien repose sur votre équipe de développement.</p></td></tr>
+<tr><td><strong>A'</strong></td><td>Un CRM léger acheté à côté<br>+ Viterbit + NET4</td><td><strong>À construire, sans filet</strong><br><span style="color:var(--mut);font-size:13.5px">l'éditeur a écrit que son équipe technique n'intervient pas dans ces développements. Précédent existant sur HubSpot, chez deux de ses agences clientes</span></td><td><strong>Documenté des deux côtés</strong><br><span style="color:var(--mut);font-size:13.5px">identique à A</span></td><td class="fw"><p><span class="pf">Pour</span>Se déclenche sans rien attendre de votre équipe, et chaque brique est la meilleure de sa catégorie.</p><p><span class="pw">Contre</span>Un abonnement de plus, deux interfaces pour le conseiller, et un lien que l'éditeur refuse de maintenir.</p></td></tr>
+<tr><td><strong>A&Prime;</strong></td><td>Un CRM léger développé sur mesure<br>+ Viterbit + NET4</td><td><strong>À construire, mais c'est le même chantier</strong><br><span style="color:var(--mut);font-size:13.5px">le lien vers l'ATS fait partie du développement au lieu de s'y ajouter</span></td><td><strong>Documenté des deux côtés</strong><br><span style="color:var(--mut);font-size:13.5px">identique à A</span></td><td class="fw"><p><span class="pf">Pour</span>Aucune licence par conseiller, et le code comme les données restent à Slash : la plateforme peut l'absorber plus tard au lieu d'imposer une migration.</p><p><span class="pw">Contre</span>Un logiciel de plus à maintenir, sur la même bande passante que le reste, et les fonctions ingrates arrivent en dernier : mobile, synchronisation des mails, agenda.</p></td></tr>
+<tr><td><strong>B</strong></td><td>Zoho Recruit + Zoho CRM<br>+ NET4</td><td><strong>Natif</strong><br><span style="color:var(--mut);font-size:13.5px">même éditeur, couplage supporté</span></td><td><strong>À construire</strong><br><span style="color:var(--mut);font-size:13.5px">aucun connecteur n'existe. Webhooks Zoho d'un côté, API NET4 de l'autre</span></td><td class="fw"><p><span class="pf">Pour</span>Un seul éditeur pour l'ATS et le CRM, prix publics et bas.</p><p><span class="pw">Contre</span>Pas d'InfoJobs, donc le premier canal de recrutement espagnol reste hors de l'outil. Et aucun des deux éditeurs ne mentionne l'autre.</p></td></tr>
+<tr><td><strong>B'</strong></td><td>Manatal + NET4</td><td colspan="2" style="text-align:center"><strong>Écarté</strong>, aucune référence d'intégration ERP chez l'éditeur</td><td class="fw"><p><span class="pw">Contre</span>Modèle économique de placement et non d'intérim, données hébergées aux États-Unis, aucun ancrage espagnol.</p></td></tr>
+<tr style="opacity:.62"><td><strong>C</strong></td><td>Viterbit <em>ou</em> Zoho<br>+ e-OER</td><td><strong>Selon l'ATS</strong><br><span style="color:var(--mut);font-size:13.5px">natif avec Zoho, à construire avec Viterbit</span></td><td><strong>À construire</strong><br><span style="color:var(--mut);font-size:13.5px">API e-OER faite sur mesure, sans documentation publique</span></td><td class="fw"><p><span class="pf">Pour</span>C'était le moins cher, et le seul intégralement chiffré.</p><p><span class="pw">Contre</span>Caduc : l'éditeur s'est retiré.</p></td></tr>
+<tr><td><strong>D</strong></td><td>In-recruiting + BAS Nómina<br>tout chez Zucchetti</td><td><strong>Partiel</strong><br><span style="color:var(--mut);font-size:13.5px">comptes clients et commandes inclus, mais aucun pipeline de prospection : l'éditeur l'a dit lui-même en démonstration</span></td><td><strong>À construire</strong><br><span style="color:var(--mut);font-size:13.5px">pas un connecteur livré : un développement à cadrer entre les deux éditeurs et à inscrire dans leur feuille de route</span></td><td class="fw"><p><span class="pf">Pour</span>Le seul couple d'un même éditeur en Espagne, et la seule paie qui couvre aussi l'Italie.</p><p><span class="pw">Contre</span>Rien n'est démontré côté paie, pas d'InfoJobs côté ATS, et le raccordement reste à inscrire dans leur feuille de route.</p></td></tr>
+</table></div>
+
+<h3>Ce que coûte chaque brique</h3>
+<p>Hypothèse commune : dix conseillers, première année, hors taxes.</p>
+
+<div class="scroll"><table>
+<tr><th>Brique</th><th>Hypothèse retenue</th><th class="num">Année 1</th></tr>
+<tr><td>ATS Viterbit</td><td>259 €/mois affichés au tarif public ; 7 000 €/an constatés chez un client comparable</td><td class="num">3 100 à 7 000 €</td></tr>
+<tr><td>ATS Zoho Recruit</td><td>Plan Professional à 50 €/conseiller/mois, premier plan ouvrant webhooks et WhatsApp. Mise en place par le partenaire non chiffrée, à ajouter.</td><td class="num">6 000 € + mise en place</td></tr>
+<tr><td>CRM commercial</td><td>Nul si la plateforme Slash le porte, ou si vous le développez : dans ce cas le coût est du temps de développement, pas une licence. Sinon 7 à 24 €/conseiller/mois, soit 840 à 2 900 € à dix conseillers et jusqu'à 8 600 € à trente.</td><td class="num">0 à 2 900 €</td></tr>
+<tr style="opacity:.62"><td>ERP e-OER <span style="color:var(--mut);font-size:13.5px">retiré</span></td><td>Socle 400 à 500 €/mois couvrant 200 travailleurs, plus 12 €/conseiller/mois, plus 3 000 à 4 000 € de mise en service. <strong>À conserver comme seul repère de prix connu du marché.</strong></td><td class="num">sans objet</td></tr>
+<tr><td>ERP NET4</td><td><strong>Aucun prix obtenu.</strong> Signaux de marché : environ 600 à 1 250 €/mois par ETT cliente, mise en service de 5 000 à 15 000 € sur son marché historique.</td><td class="num">non chiffré</td></tr>
+<tr class="tot"><td>Engagement de l'année 1, ATS et CRM</td><td>la seule partie qu'on puisse chiffrer aujourd'hui</td><td class="num">3 100 à 9 900 €</td></tr>
+</table></div>
+
+<p style="font-size:14px;color:var(--mut)">S'ajoutent dans tous les cas, hors outils : environ 250 à 800 € par conseiller actif et par an pour les annonces et le sourcing, et 90 à 120 € par intérimaire démarré, soit la visite médicale entre 47 et 80 € et les équipements de protection autour de 40 €.</p>
+
+<div class="warn">
+<p><strong>Il n'existe aujourd'hui aucun scénario ERP chiffré, ni même aucun candidat ERP qualifié.</strong></p>
+<p>Le seul qui s'était montré et chiffré s'est retiré ce matin. Les deux qui restent n'ont rien démontré et n'ont donné aucun prix. Ce n'est pas une raison de choisir vite, c'est la démonstration qu'il n'y a rien à choisir pour l'instant, et que la brique urgente est ailleurs.</p>
+</div>
+
+<h3>Ce qui se décide aujourd'hui, et ce qui ne se décide pas</h3>
+<p><strong>Ce qui se décide : retenir Viterbit comme hypothèse de travail et ouvrir la négociation.</strong> Cela ne coûte rien et cela débloque la seule chose qui manque de son côté, la grille de prix par palier.</p>
+<p><strong>Ce qui ne se décide pas aujourd'hui : la signature.</strong> Deux conditions manquent. La grille de prix, sans laquelle on signerait sur un plancher affiché plutôt que sur un devis. Et une démonstration de Zoho, qui reste le seul candidat capable de repasser devant s'il prouve ce qu'il documente. Tant que ces deux points ne sont pas levés, engager la négociation est prudent, signer ne l'est pas.</p>
+<p>Retenir Viterbit laisse d'ailleurs ouverts les scénarios A, A', A&Prime; et B : seule la brique CRM les distingue, et elle se tranche en interne. Le choix d'ERP reste entier dans tous les cas.</p>
+
+<h2 id="grille"><span class="no">7</span> La grille d'évaluation</h2>
+
+<p>Chaque critère vaut des points au prorata de son poids. La colonne des points s'additionne et donne le score sur 100.</p>
+
+<h3>Côté ERP : e-OER</h3>
+<div class="scroll"><table>
+<tr><th>Critère</th><th class="num">Poids</th><th class="num">Points</th><th>Sur quelle preuve</th></tr>
+<tr><td>API et intégration : documentation, webhooks, fréquence de synchronisation, cas prouvés, coût d'ouverture</td><td class="num">25</td><td class="num">15</td><td>Pas de documentation publique. Intégrations en production citées par l'éditeur, non montrées.</td></tr>
+<tr><td>Couverture métier : validation à deux niveaux, avenants et aléas, reporting à l'autorité du travail, facturation, portails</td><td class="num">20</td><td class="num">20</td><td><strong>Vu en démo</strong>, sauf l'écran du reporting à l'autorité du travail</td></tr>
+<tr><td>Coût total sur trois ans, garanties tarifaires pluriannuelles comprises</td><td class="num">20</td><td class="num">12</td><td>Prix annoncés oralement, « flexible et négociable », aucun devis. Coût de sortie inconnu.</td></tr>
+<tr><td>Mise en œuvre : délai réel, support direct, paramétrage des convenios</td><td class="num">10</td><td class="num">6</td><td>Affirmé par l'éditeur, qui signale lui-même la rareté de la compétence</td></tr>
+<tr><td>Références ETT comparables et ancienneté métier</td><td class="num">10</td><td class="num">6</td><td>Déclarées en démo, aucune référence contactée ni nommée</td></tr>
+<tr><td>Couverture multi-pays : Espagne aujourd'hui, Belgique et Italie demain</td><td class="num">10</td><td class="num">2</td><td>Espagne uniquement, assumé par l'éditeur</td></tr>
+<tr><td>Évolutivité : multi-agences, commissions, mobile, automatisations</td><td class="num">5</td><td class="num">4</td><td>Montage en délégations proposé et décrit, non paramétré à l'écran</td></tr>
+<tr class="tot"><td>Total</td><td class="num">100</td><td class="num"><span class="sc b">65</span></td><td></td></tr>
+</table></div>
+
+
+
+<p>Ce score ne classe personne : aucun autre ERP n'a fourni de quoi être noté. Et un critère éliminatoire, le reporting mensuel à l'autorité du travail, n'a jamais été vu à l'écran. <strong>C'est une photographie de ce qui a été prouvé, pas un verdict.</strong></p>
+<p>Le critère multi-pays coûte 8 points pour une propriété que le chapitre 3 démontre inexistante sur le marché. Si chaque pays doit avoir son back-office, ce critère devrait peser beaucoup moins.</p>
+
+<h3>Côté ATS</h3>
+<p>La grille et les notes figurent au chapitre 4, avec la révision de pondération et son motif. Le rappel de la règle vaut aussi ici : Viterbit obtient trois notes de 5 parce qu'il a démontré, Zoho obtient des 3 parce qu'il n'a pas pu.</p>
+
+<h2 id="cdc"><span class="no">8</span> Le one-pager traduit en Espagne</h2>
+<p>Chaque besoin décrit dans le one-pager plateforme, son équivalent réglementaire espagnol, et qui le couvre dans le pack transitoire.</p>
+
+<div class="scroll"><table>
+<tr><th>Besoin</th><th>Équivalent espagnol</th><th>Couvert par</th></tr>
+<tr><td>Création client par numéro d'entreprise avec pré-remplissage officiel</td><td>NIF ou CIF, Registre du commerce</td><td>Résolu par une API de vérification, de 0 à 40 €/mois. Le lookup natif de l'ERP reste à vérifier.</td></tr>
+<tr><td>Vérification d'assurabilité conditionnant le droit de travailler avec le client</td><td>Assurance-crédit</td><td>Solutions identifiées, mais <strong>aucun ERP ne l'intègre nativement</strong> : contrat à part et contrôle à la création du client</td></tr>
+<tr><td>Contrats de mission et avenants, validation par le siège</td><td>Contrat de mise à disposition au format obligatoire, plus le contrat de travail</td><td>NET4 et e-OER. Le circuit à deux niveaux a été démontré chez e-OER.</td></tr>
+<tr><td>Déclaration d'embauche à chaque contrat</td><td>Alta à la Sécurité sociale et déclaration au SEPE</td><td>Documenté chez les deux. Sur la voie utilisée par un logiciel de paie, la transmission est faite par SILTRA, l'application de la Sécurité sociale installée chez vous : <strong>ce qui se compare, c'est le degré d'automatisation du passage de relais</strong>, et il dépend du mode d'hébergement du logiciel.</td></tr>
+<tr><td><strong>Obligation sans équivalent français</strong></td><td>Relación mensuelle des contrats de mise à disposition à l'autorité du travail, dans les dix premiers jours de chaque mois, une par centre de travail, <strong>obligatoire même à zéro contrat</strong></td><td>e-OER a un module documenté, l'écran n'a pas été montré. NET4 : non documenté. <strong>C'est la question numéro un à poser partout.</strong></td></tr>
+<tr><td>Contrôle réglementaire du salaire minimum actualisé</td><td>Salaire minimum et surtout convenios colectivos, la vraie complexité espagnole</td><td>NET4 avec un service dédié, e-OER avec un module à 12,95 €/mois</td></tr>
+<tr><td>Signature électronique côté client et côté intérimaire</td><td>Identique</td><td>Intégrée chez NET4, signature tripartite chez e-OER, sinon un prestataire à 14 à 30 €/mois</td></tr>
+<tr><td>Relevés d'heures hebdomadaires et validation</td><td>Partes de horas</td><td>Portails des deux ERP. NET4 a même le pointage par WhatsApp. La lecture par IA de feuilles scannées restera un apport de votre plateforme.</td></tr>
+<tr><td>Aléas de mission : accident, arrêt maladie, intempérie</td><td>Système Delt@, où <strong>c'est l'ETT qui déclare</strong> : sous cinq jours ouvrés en cas d'arrêt, sous 24 heures si l'accident est grave. La Catalogne et le Pays basque ont leurs propres canaux.</td><td>e-OER : module documenté avec écran dédié. NET4 : à vérifier.</td></tr>
+<tr><td>Facturation, relance des impayés, blocage commercial</td><td>Identique, aux nouveaux formats fiscaux</td><td>Facturation couverte des deux côtés. Relances et blocage automatiques à vérifier.</td></tr>
+<tr><td>ATS intégré : commandes, annonces, multidiffusion, pipeline, lecture de CV</td><td>Multidiffusion InfoJobs et Indeed</td><td>Viterbit ou Zoho, plus les packs InfoJobs</td></tr>
+<tr><td>Intérimaire sans compte : liens sécurisés, dépôt de pièces</td><td>Identique, plus la collecte du numéro d'identité, du numéro de Sécurité sociale et de l'IBAN</td><td>Partiel : les portails ERP exigent un compte. Option de vérification d'identité à 0,40 à 0,63 € l'unité.</td></tr>
+<tr><td>Siège : files de validation, marges par contrat, commissions par conseiller</td><td>Identique</td><td><strong>Le calcul de commissions du réseau n'existe dans aucun outil du marché.</strong> À garder hors périmètre : un tableur au démarrage, la plateforme le portera.</td></tr>
+<tr><td>Simulateur de marge du conseiller</td><td>Recalcul complet : salaire au convenio de l'entreprise utilisatrice, primes annuelles proratisées, indemnité de fin de contrat d'environ douze jours par an. L'indemnité française n'existe pas telle quelle.</td><td>La plateforme, paramétrée pour l'Espagne. L'ERP fournit les barèmes de convenios.</td></tr>
+<tr><td>Vigilance sur les documents échus</td><td>Pièce d'identité, permis de travail, certificat d'aptitude médicale, formations sécurité</td><td>La plateforme, alimentée par l'ERP et par le service de prévention. <strong>Point non vérifié :</strong> aucun des deux ERP ne documente le certificat d'aptitude, et aucun n'a été interrogé sur le blocage d'une mise à disposition quand l'aptitude manque ou a expiré.</td></tr>
+</table></div>
+
+<div class="note">
+<p><strong>Lecture d'ensemble : le pack transitoire couvre l'essentiel.</strong> Trois besoins seulement échappent au marché : le calcul des commissions du réseau, la lecture par IA des documents, et le parcours intérimaire sans compte. Ce sont précisément les trois choses que votre plateforme apporte. Le transitoire n'a pas à les répliquer.</p>
+<p>Le marché confirme le pari : <strong>aucune plateforme de réseau de conseillers clé en main n'existe en Espagne.</strong> Les précédents connus, quand un groupe a voulu ce modèle, ont tous dû construire ou racheter la leur.</p>
+</div>
+
+<h3>L'arbitrage qui te revient</h3>
+<p>Il y a deux scénarios pour le poste de travail du conseiller au jour un, et ils changent la pondération de la grille.</p>
+<p><strong>Scénario 1, la plateforme est prête</strong>, en multi-entités et en espagnol. Le conseiller travaille sur la plateforme, et l'ATS ne sert qu'au sourcing. C'est le cas le plus simple et le moins cher.</p>
+<p><strong>Scénario 2, la plateforme est différée.</strong> L'ATS devient alors le poste de travail complet et provisoire du conseiller, comme votre premier outil l'a été en France. Dans ce cas la pondération monte sur le workflow d'agence et sur le cloisonnement, ce qui avantage Viterbit et Mainder. Le benchmark couvre les deux, parce que les ATS ont aussi été jugés comme front autonome.</p>
+<p>La question préalable est donc double : capacité multi-pays de la plateforme, et bande passante de développement disponible.</p>
+
+<h2 id="outsiders"><span class="no">9</span> Les outsiders et les émergents</h2>
+<p>Rien d'indispensable au lancement, mais plusieurs briques à fort potentiel pour l'année qui vient.</p>
+
+<div class="scroll"><table>
+<tr><th>Outil</th><th>Ce qu'il apporte</th><th>Verdict</th></tr>
+<tr><td><strong>Orbio</strong><br><span style="color:var(--mut);font-size:13.5px">Madrid</span></td><td>Agents IA de recrutement massif pour les secteurs à forte rotation : entretiens voix et texte, vérification de documents, onboarding. Levée de 21 M$, clients de premier plan, un million de candidats traités par an.</td><td><strong>L'outsider numéro un.</strong> Espagnol, exactement votre cas d'usage. À tester sur un périmètre limité, la société est très jeune.</td></tr>
+<tr><td><strong>Bullhorn</strong><br><span style="color:var(--mut);font-size:13.5px">numéro un mondial du staffing</span></td><td>Le seul éditeur du panel élargi à documenter la visibilité hybride exacte de votre modèle : portées par action et par type d'enregistrement, candidats partagés et clients privés.</td><td>Hors pack : pas de paie espagnole, InfoJobs et WhatsApp faibles, 150 à 250 $ par utilisateur en réalité. Mais <strong>sa documentation est l'étalon</strong> avec lequel j'ai exigé l'équivalent des autres.</td></tr>
+<tr><td><strong>ATS Mako</strong></td><td>Le seul éditeur qui documente noir sur blanc l'architecture de franchise : compte parent, isolation par bureau, reporting consolidé au siège.</td><td>Piste de secours si les candidats échouaient au protocole des trois conseillers. Conformité européenne et espagnol inconnus.</td></tr>
+<tr><td><strong>Landbot</strong> et <strong>Hireflix</strong><br><span style="color:var(--mut);font-size:13.5px">Barcelone</span></td><td>Chatbot WhatsApp branché sur l'ATS pour la préqualification, et vidéo-entretiens asynchrones sur mobile.</td><td>Briques d'appoint solides. Hireflix est déjà adopté par un concurrent direct.</td></tr>
+<tr><td><strong>Alice Biometrics</strong> et <strong>Tecalis</strong></td><td>Vérification d'identité à distance, l'une certifiée par le centre cryptologique national, l'autre avec la signature du contrat dans le même flux.</td><td>La brique qui rend possible le parcours intérimaire sans compte</td></tr>
+<tr><td><strong>Textkernel</strong> ou <strong>HrFlow</strong></td><td>Parsing de CV multilingue. Textkernel équipe déjà InfoJobs, Adecco et Randstad.</td><td>Si le parsing de l'ATS retenu déçoit sur les CV espagnols</td></tr>
+</table></div>
+
+<h3>À éviter</h3>
+<p><strong>Paradox et Olivia</strong>, racheté par Workday : une fuite de 64 millions de dossiers via un mot de passe trivial invite à la prudence. <strong>Cornerjob</strong> appartient à Eurofirms, votre concurrent. <strong>Job Today</strong> est un canal utile mais sans API publique. Et sur l'axe du cloisonnement par des tiers, <strong>Vincere, JobAdder, Loxo et Crelate</strong> ont tous été écartés : leur multi-marque n'est que de la segmentation de reporting, sans aucun cloisonnement documenté par enregistrement.</p>
+
+<h3>Les références de modèle</h3>
+<p>Quatre découvertes valent d'être connues parce qu'elles décrivent votre projet mieux que n'importe quelle plaquette. <strong>Top Echelon</strong>, aux États-Unis, fait tourner un réseau de milliers de recruteurs indépendants avec un pool de candidats partagés et une attribution : c'est le cahier des charges exact d'un module réseau. <strong>FoxHire</strong> joue l'employeur légal derrière des recruteurs indépendants, exactement le rôle que la licence d'ETT donne à votre siège. <strong>NPAworldwide</strong> prouve que la coopérative de recruteurs fonctionne en Europe, zone Espagne comprise. Et <strong>Talentoo</strong>, à Madrid, a des mécaniques directement copiables : plafond de cinq CV par recruteur et par offre, réputation par étoiles, paiement au succès.</p>
+<div class="note">
+<p><strong>Une doctrine se dégage :</strong> tous les grands réseaux de mandataires, iad, Safti, Temporis, Mistertemp', Etalentum, tournent sur une plateforme propriétaire. Safti montre même son double rôle, puisqu'elle sert aussi la rétention du réseau : le conseiller qui part perd son historique.</p>
+<p>D'où la question de gouvernance à trancher avant le premier recrutement de conseiller : <strong>à qui appartient le portefeuille d'un conseiller qui s'en va ?</strong> Elle se règle dans l'architecture des données autant que dans le contrat.</p>
+</div>
+
+<h2 id="contacts"><span class="no">10</span> Les contacts commerciaux</h2>
+<div class="scroll"><table>
+<tr><th>Organisation</th><th>Rôle dans le pack</th><th>Canal</th></tr>
+<tr><td>Nivel IV / NET4</td><td>ERP, la référence</td><td>info@niveliv.es &middot; +34 986 213 194</td></tr>
+<tr><td>Synderesis / e-OER</td><td>ERP, l'indépendant</td><td>aecheverria@idieikon.com &middot; +34 96 112 40 00</td></tr>
+<tr><td>Zucchetti Spain</td><td>ERP, le rival international et le levier de négociation</td><td>marketing@zucchetti.es &middot; +34 94 427 13 62 &middot; Derio, Bizkaia</td></tr>
+<tr><td>Viterbit</td><td>ATS recommandé</td><td>Contact commercial nominatif établi &middot; documentation API publique</td></tr>
+<tr><td>Zoho Recruit</td><td>ATS, la valeur sûre</td><td>Partenaire agréé espagnol identifié &middot; bureau Madrid +34 918 368 598</td></tr>
+<tr><td><strong>InfoJobs Empresas</strong></td><td><strong>Le vrai levier de coût du pack</strong> : packs d'annonces à négocier en central</td><td>900 82 73 82</td></tr>
+<tr><td>InfoJobs Partners</td><td>Accord d'intégration API pour le futur raccordement</td><td>gestiondatos@infojobs.net</td></tr>
+<tr><td>Quirónprevención &middot; Vítaly &middot; ASPY</td><td>Visites médicales, contrat national</td><td>911 22 14 52 &middot; 911 594 000 &middot; 900 120 124</td></tr>
+<tr><td>eInforma &middot; APIEmpresas</td><td>Vérification de solvabilité par NIF</td><td>900 10 30 20 &middot; apiempresas.es, 100 requêtes gratuites</td></tr>
+<tr><td>Cesce</td><td>Assurance-crédit, souscription en ligne</td><td>cesce.es</td></tr>
+</table></div>
+<p style="font-size:14px;color:var(--mut)">Deux registres officiels pour vérifier par vous-mêmes : SERPA pour les accréditations des services de prévention, SIGETT pour la liste des ETT autorisées.</p>
+
+<h2 id="ouvert"><span class="no">11</span> Ce qui reste ouvert</h2>
+
+<h3>Les trois zones non vérifiées</h3>
+<div class="warn">
+<p><strong>1. La grille de prix de Viterbit par palier.</strong> Le tarif public démarre à 259 € par mois, mais la grille de 5 à 30 conseillers n'a pas été communiquée. La fourchette de ce rapport encadre le tarif affiché et un montant réel constaté ailleurs, elle ne remplace pas un devis.</p>
+<p><strong>2. Le coût du raccordement entre l'ATS et l'ERP.</strong> Ce point s'est largement éclairci : les deux éditeurs décrivent désormais la même chose, des flux en temps réel sur les demandes et les candidats, avec un connecteur maintenu par NET4. <strong>Reste le montant, explicitement à votre charge et jamais communiqué.</strong> C'est la première chose à obtenir avant d'engager quoi que ce soit du côté paie.</p>
+<p><strong>3. Le contenu réel de votre plateforme sur la partie commerciale.</strong> Ce rapport porte sur les outils du marché, pas sur votre produit. La réponse ne peut venir que de votre équipe technique.</p>
+<p><strong>4. Le contrôle de l'aptitude médicale avant mise à disposition.</strong> En Espagne, l'examen est fait par le service de prévention, qui émet le certificat : ce n'est pas le métier de l'ERP. Mais l'ERP doit stocker ce certificat, suivre sa validité et <strong>refuser un contrat de mise à disposition quand elle manque ou a expiré</strong>. Aucun éditeur ne le documente et aucun n'a été interrogé dessus. C'est le genre de contrôle qu'on découvre absent le jour où un client le réclame.</p>
+</div>
+
+<h3>Ce qui ferait changer la recommandation</h3>
+<ol>
+<li><strong>L'ouverture confirmée d'un second pays.</strong> Aucun éditeur ne couvre l'Espagne, la Belgique et l'Italie avec un seul produit de paie. Si la Belgique ou l'Italie deviennent un engagement et non une hypothèse, la question devient le coût de sortie de l'ERP espagnol plutôt que son périmètre, et le scénario Zucchetti remonte.</li>
+<li><strong>Un volume qui décolle vite.</strong> Les deux outils se facturent à l'utilisateur. Le passage de 5 à 30 conseillers change l'arbitrage, et c'est la raison pour laquelle la grille par palier doit être obtenue avant signature.</li>
+<li><strong>Une démonstration Zoho réussie.</strong> Comme écrit au chapitre 4, il passerait devant. C'est le seul candidat dans ce cas.</li>
+<li><strong>Un couplage ATS et ERP chez un même éditeur.</strong> Il supprimerait le raccordement à construire. Côté zvoove, c'est vérifié et c'est non. Il ne reste que Zucchetti, qui possède les deux briques mais n'a démontré ni l'une ni l'autre.</li>
+</ol>
+
+<h3>Ce que le marché impose comme rythme</h3>
+<p>Le jumeau opérationnel décrit au chapitre 2 vend déjà la franchise en Espagne. Ce que cela implique pour le choix d'outils est simple : <strong>votre différenciation ne sera pas le back-office, que n'importe qui peut acheter, mais la plateforme et le réseau.</strong> Ce qui renforce l'idée de faire porter le commercial par votre plateforme plutôt que par un outil tiers, parce que c'est le seul actif que personne ne peut copier en achetant une licence.</p>
+
+<h3>Ce qu'il me manque pour chiffrer</h3>
+<p>Le pack est aujourd'hui donné en fourchette parce que quatre paramètres dépendent de toi. Chacun commande une ligne du budget.</p>
+<div class="scroll"><table>
+<tr><th>Ce que je te demande</th><th>Ce que ça chiffre</th></tr>
+<tr><td><strong>Le nombre de conseillers</strong>, à six mois et à douze</td><td>Toute la licence ATS et toute la licence CRM : elles se facturent au siège. C'est le paramètre le plus structurant, et c'est celui sur lequel les éditeurs construisent leur devis en ce moment.</td></tr>
+<tr><td><strong>Le nombre d'intérimaires attendus</strong>, et à quelle échéance</td><td>Le socle ERP, qui se facture au travailleur et non à l'utilisateur. Il détermine aussi si un éditeur accepte le dossier : l'un vient de le refuser au motif du volume.</td></tr>
+<tr><td><strong>La date du premier contrat de mise à disposition</strong></td><td>Si le coût ERP tombe en année 1 ou en année 2. Tant qu'il n'y a aucun intérimaire, il n'y a rien à produire et rien à payer.</td></tr>
+
+<tr><td><strong>Le volume d'annonces prévu</strong></td><td>Le poste le plus lourd du pack, et le plus négociable : 250 à 800 € par conseiller et par an. Les packs InfoJobs se négocient en central, et c'est là que se fait le prix.</td></tr>
+</table></div>
+
+<h3>Et quatre choses en dehors du chiffrage</h3>
+<ul class="check">
+<li><strong>L'accord pour ouvrir la négociation avec Viterbit</strong> sur la grille de prix par palier. Ce n'est pas la signature : elle attend cette grille, et une démonstration de Zoho si elle peut être obtenue rapidement</li>
+<li><strong>Le suivi commercial dans la plateforme.</strong> Elle crée déjà le prospect et gère le client, ses commandes et ses contrats. Porte-t-elle aussi les étapes du démarchage, les relances et les tâches datées ?</li>
+<li><strong>Un contact dans ton équipe technique.</strong> Le lien entre la plateforme et l'ATS existe dans tous les scénarios retenus, il faut le cadrer</li>
+<li><strong>La Belgique et l'Italie : hypothèse ou engagement ?</strong> C'est la seule chose qui ferait remonter un candidat aujourd'hui écarté</li>
+</ul>
+
+<footer>
+Rapport établi par Yoan Caille, consultant indépendant. Sources : grilles tarifaires officielles, marchés publics espagnols, statistiques du ministère du Travail, Bulletin officiel de l'État pour les obligations réglementaires, et un benchmark interne d'une consultoría espagnole pour quatre des ATS. Tous les prix sont hors taxes, et chaque prix est donné avec le volume auquel il correspond.
+</footer>
+
+</div>
+<script>
+document.addEventListener('click', function (e) {
+  var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+  if (!a) return;
+  var el = document.getElementById(a.getAttribute('href').slice(1));
+  if (!el) return;
+  e.preventDefault();
+  el.scrollIntoView({behavior: 'smooth', block: 'start'});
+});
+</script>
+</body></html>
