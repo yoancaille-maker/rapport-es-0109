@@ -541,6 +541,7 @@ p,li,td{color:#cdd2da}.card{background:#171a20}.card.later{background:#15181d}
 <tr><td>Aléas de mission : accident, arrêt maladie, intempérie</td><td>Système Delt@, où <strong>c'est l'ETT qui déclare</strong> : sous cinq jours ouvrés en cas d'arrêt, sous 24 heures si l'accident est grave. La Catalogne et le Pays basque ont leurs propres canaux.</td><td>e-OER : module documenté avec écran dédié. NET4 : à vérifier.</td></tr>
 <tr><td>Facturation, relance des impayés, blocage commercial</td><td>Identique, aux nouveaux formats fiscaux</td><td>Facturation couverte des deux côtés. Relances et blocage automatiques à vérifier.</td></tr>
 <tr><td>ATS intégré : commandes, annonces, multidiffusion, pipeline, lecture de CV</td><td>Multidiffusion InfoJobs et Indeed</td><td>Viterbit ou Zoho, plus les packs InfoJobs</td></tr>
+<tr><td><strong>Suivi commercial du conseiller</strong> : prospect, étapes de démarchage, relances datées</td><td>Identique</td><td><strong>Aucun ATS du panel ne le porte, Viterbit compris.</strong> Deux voies, acheter un CRM léger ou le développer, comparées en fin de chapitre. Le cloisonnement entre conseillers les départage.</td></tr>
 <tr><td>Intérimaire sans compte : liens sécurisés, dépôt de pièces</td><td>Identique, plus la collecte du numéro d'identité, du numéro de Sécurité sociale et de l'IBAN</td><td>Partiel : les portails ERP exigent un compte. Option de vérification d'identité à 0,40 à 0,63 € l'unité.</td></tr>
 <tr><td>Siège : files de validation, marges par contrat, commissions par conseiller</td><td>Identique</td><td><strong>Le calcul de commissions du réseau n'existe dans aucun outil du marché.</strong> À garder hors périmètre : un tableur au démarrage, la plateforme le portera.</td></tr>
 <tr><td>Simulateur de marge du conseiller</td><td>Recalcul complet : salaire au convenio de l'entreprise utilisatrice, primes annuelles proratisées, indemnité de fin de contrat d'environ douze jours par an. L'indemnité française n'existe pas telle quelle.</td><td>La plateforme, paramétrée pour l'Espagne. L'ERP fournit les barèmes de convenios.</td></tr>
@@ -552,11 +553,25 @@ p,li,td{color:#cdd2da}.card{background:#171a20}.card.later{background:#15181d}
 <p>Le marché confirme le pari : <strong>aucune plateforme de réseau de conseillers clé en main n'existe en Espagne.</strong> Les précédents connus, quand un groupe a voulu ce modèle, ont tous dû construire ou racheter la leur.</p>
 </div>
 
-<h3>L'arbitrage qui te revient</h3>
-<p>Il y a deux scénarios pour le poste de travail du conseiller au jour un, et ils changent la pondération de la grille.</p>
-<p><strong>Scénario 1, la plateforme est prête</strong>, en multi-entités et en espagnol. Le conseiller travaille sur la plateforme, et l'ATS ne sert qu'au sourcing. C'est le cas le plus simple et le moins cher.</p>
-<p><strong>Scénario 2, la plateforme est différée.</strong> L'ATS devient alors le poste de travail complet et provisoire du conseiller, comme votre premier outil l'a été en France. Dans ce cas la pondération monte sur le workflow d'agence et sur le cloisonnement, ce qui avantage Viterbit et Mainder. Le benchmark couvre les deux, parce que les ATS ont aussi été jugés comme front autonome.</p>
-<p>La question préalable est donc double : capacité multi-pays de la plateforme, et bande passante de développement disponible.</p>
+<h3>L'arbitrage qui reste : acheter le suivi commercial ou le développer</h3>
+<p>La plateforme française ne se connecte pas la première année, et le CRM sera externe. Reste à décider s'il s'achète ou s'il se construit. Trois fonctions sont en jeu, et trois seulement : le prospect, les étapes de démarchage, et les relances avec échéance. La fiche client, les commandes, la facturation, le coefficient et la marge sont chez l'ERP.</p>
+<p><strong>C'est le cloisonnement entre conseillers qui départage les deux voies.</strong> Un conseiller ne doit pas voir le portefeuille d'un autre. Chez tous les éditeurs du marché, cette fonction est vendue au palier haut.</p>
+<div class="scroll"><table>
+<tr><th>Option</th><th>Cloisonnement entre conseillers</th><th>Ce que l'intégration à Viterbit demande</th><th class="num">Sur 3 ans</th></tr>
+<tr><td>Zoho Bigin Express, 6,50 €/conseiller/mois</td><td>Profils et rôles annoncés, restriction de visibilité non documentée</td><td>Retour depuis l'ATS sans code. Aller vers l'ATS à construire</td><td class="num">18 380 €</td></tr>
+<tr><td>HubSpot Starter, 7 €</td><td>Aucun</td><td><strong>Le seul chemin déjà parcouru</strong> : Viterbit confirme par écrit que deux agences clientes l'ont branché par leur propre développement</td><td class="num">19 640 €</td></tr>
+<tr><td><strong>Zoho Bigin Premier, 11 €</strong></td><td><strong>Rôles dès le palier bas, à vérifier</strong></td><td>Identique à Express</td><td class="num">29 720 €</td></tr>
+<tr><td>Pipedrive Lite, 14 €</td><td>Aucun</td><td>Retour sans code, aller à construire</td><td class="num">37 280 €</td></tr>
+<tr><td>Pipedrive Premium, 59 €</td><td>Oui, visibilité individuelle</td><td>Identique à Lite</td><td class="num">150 680 €</td></tr>
+<tr><td>HubSpot Pro, 90 €</td><td>Oui, permissions et répartition</td><td>Le mieux outillé : action webhook native, sans outil tiers</td><td class="num">228 800 €</td></tr>
+<tr class="tot"><td>Carnet développé</td><td>Dans le modèle de données dès le départ</td><td>Le lien fait partie du chantier au lieu de s'y ajouter</td><td class="num">13 200 à 25 200 €</td></tr>
+</table></div>
+<p style="font-size:14px;color:var(--mut)">Hypothèse commune : trente conseillers la première année, soixante la deuxième, cent vingt la troisième. Tarifs relevés sur les grilles publiques en facturation annuelle. Le connecteur, deux mille euros, est compté dans chaque ligne : il est à écrire dans tous les cas, y compris avec un CRM du commerce.</p>
+<div class="note">
+<p><strong>Les options sans cloisonnement coûtent autant que le développement</strong>, entre 18 000 et 20 000 € sur trois ans, sans faire ce que le modèle exige et en continuant de courir chaque année. <strong>Les options avec cloisonnement coûtent six à neuf fois plus</strong>, jusqu'à 228 800 €.</p>
+<p>Une seule mérite un essai avant de trancher : <strong>Zoho Bigin Premier à 11 €</strong>, le seul produit qui annonce des rôles dès son palier bas. Une demi-journée sur un compte d'essai suffit à le savoir : créer trois utilisateurs, donner un client à chacun, vérifier qu'ils ne se voient pas.</p>
+</div>
+<p><strong>Un point technique qui penche du même côté.</strong> L'API de Viterbit propose des permissions granulaires par domaine et une restriction par adresse IP. Ces protections ne servent que si le code appelant vous appartient : en passant par un outil d'automatisation tiers, la clé vit chez lui et la liste d'adresses autorisées devient la sienne. Dans un projet dont l'exigence centrale est le cloisonnement, cela compte.</p>
 
 <h2 id="outsiders"><span class="no">9</span> Les outsiders et les émergents</h2>
 <p>Rien d'indispensable au lancement, mais plusieurs briques à fort potentiel pour l'année qui vient.</p>
