@@ -554,6 +554,25 @@ p,li,td{color:#cdd2da}.card{background:#171a20}.card.later{background:#15181d}
 <tr><td>Développement du sens retour</td><td>non chiffré</td><td>Statut du contrat et du CPD, alta, heures validées, facture et encaissement, marge par mission, échéances de documents</td></tr>
 </table></div>
 
+<h3>Comment ça se facture</h3>
+
+<p>L'unité est le travailleur et la période est le mois. Pas l'utilisateur, pas le conseiller, pas l'année. Le compteur, ce sont les travailleurs facturés dans le mois, donc les intérimaires réellement en mission. C'est un abonnement qui suit l'activité : sans intérimaire, il n'y a pas de ligne de licence.</p>
+
+<div class="scroll"><table>
+<tr><th>Ce qui se paye chaque mois</th><th>À 100 travailleurs</th><th>À 300 travailleurs</th></tr>
+<tr><td>Licence au prix de liste, 5,00 €</td><td>500 €</td><td>1 500 €</td></tr>
+<tr><td>Licence au tarif engagé, 3,50 €</td><td>350 €</td><td>1 050 €</td></tr>
+<tr><td>API Trabajadores et Clientes</td><td>75 €</td><td>75 €</td></tr>
+<tr><td>Serviconvenios</td><td>85 €</td><td>85 €</td></tr>
+<tr class="tot"><td><strong>Total mensuel au tarif engagé</strong></td><td><strong>510 €</strong></td><td><strong>1 210 €</strong></td></tr>
+</table></div>
+
+<p>Six utilisateurs nominatifs sont inclus, et un de plus par tranche de cinquante travailleurs facturés dans le mois.</p>
+
+<div class="warn">
+<p><strong>Ce qui n'est pas dit, et qui décide du décaissement au démarrage.</strong> La mise en service n'a jamais été chiffrée : ni montant, ni périmètre, ni moment de paiement. Les conditions de paiement non plus : terme échu ou avance, périodicité, moyen de paiement, entité facturée. Le serveur dédié se facture et n'a pas de prix. Le coût de sortie n'a jamais été évoqué. Pour comparaison, l'offre ATS reçue en septembre fonctionnait à l'inverse : abonnement annuel payé un an d'avance, et installation exigible sept jours après signature. Rien n'indique ici un décaissement à la signature, et rien ne l'exclut.</p>
+</div>
+
 <h3>Ce que ça donne, à 300 travailleurs par mois</h3>
 
 <div class="scroll"><table>
