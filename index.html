@@ -99,6 +99,7 @@ p,li,td{color:#cdd2da}.card{background:#171a20}.card.later{background:#15181d}
 <li><a href="#peri">Les périphériques : annonces, visites médicales, signature, solvabilité</a></li>
 <li><a href="#scenarios">Les scénarios chiffrés</a></li>
 <li><a href="#devis">Le devis Viterbit, ligne par ligne</a></li>
+<li><a href="#devis-net4">Le devis NET4, ligne par ligne</a></li>
 <li><a href="#cdc">Le one-pager traduit en Espagne</a></li>
 <li><a href="#outsiders">Les outsiders et les émergents</a></li>
 <li><a href="#contacts">Les contacts commerciaux</a></li>
@@ -534,7 +535,62 @@ p,li,td{color:#cdd2da}.card{background:#171a20}.card.later{background:#15181d}
 </ul>
 </div>
 
-<h2 id="cdc"><span class="no">8</span> Le one-pager traduit en Espagne</h2>
+<h2 id="devis-net4"><span class="no">8</span> Le devis NET4, ligne par ligne</h2>
+
+<p>Conditions obtenues par mail les 21 et 25 septembre. <strong>Ce n'est pas un devis</strong> : il n'existe aucun document, aucune date de validité, aucune signature. Ce sont des prix annoncés dans le corps de deux courriels, et ils engagent l'éditeur moins qu'une proposition écrite.</p>
+
+<div class="scroll"><table>
+<tr><th>Poste</th><th>Prix annoncé</th><th>Ce que ça veut dire</th></tr>
+<tr><td><strong>Licence NET4, fonctionnalité complète</strong><br><span class="pf">Paie et ETT, application du travailleur, portail travailleur et portail client</span></td><td>5,00 € par travailleur et par mois</td><td>L'unité facturée est le travailleur du mois, jamais le conseiller ni l'utilisateur. C'est le prix de liste</td></tr>
+<tr><td>Utilisateurs nominatifs</td><td>6 inclus, puis 1 par tranche de 50 travailleurs facturés</td><td>Au démarrage, à faible volume, l'inclusion tombe à un ou deux utilisateurs quand il en faut trois au siège. <strong>Le prix de l'utilisateur supplémentaire n'a jamais été donné</strong></td></tr>
+<tr><td>Licence, engagement de 3 ans et 300 travailleurs par mois</td><td>3,50 € en 2026/2027<br>4,25 € en 2028<br>5,00 € en 2029</td><td>Remise dégressive qui ramène au prix de liste la troisième année. <strong>Ambiguïté non levée : « 2026/2027 » peut désigner une année de contrat ou deux</strong></td></tr>
+<tr><td>API Trabajadores et Clientes</td><td>75 € par mois</td><td>L'API standard, reçue en 45 pages. Consommation illimitée, confirmée par écrit. Aucun webhook, confirmé par écrit</td></tr>
+<tr><td>Serviconvenios</td><td>environ 85 € par mois</td><td>Abonnement séparé, 2 060 convenios. <strong>Ils ne se chargent pas dans NET4</strong> : prix et conditions se saisissent au fur et à mesure de leur utilisation</td></tr>
+<tr><td>Connecteur de l'ATS Viterbit</td><td>225 € par mois</td><td><strong>Hors périmètre depuis l'arbitrage du 22 septembre</strong>, conservé ici parce qu'il chiffre enfin un point resté ouvert pendant un mois : le connecteur, gratuit côté Viterbit, se paye côté NET4</td></tr>
+<tr><td>Formation PRL par Humact</td><td>jamais évoqué</td><td>Intégration citée comme l'une des trois exceptions de leur standard. Prix inconnu</td></tr>
+<tr><td>Serveur dédié</td><td>jamais chiffré</td><td>Déploiement sur serveur Azure dédié ou chez le client, jamais en mutualisé. C'est ce qui rend plausible l'automatisation des envois, et ça se facture</td></tr>
+<tr><td>Mise en service</td><td>jamais chiffrée</td><td>Demandée le 5 octobre. Sur le marché historique du groupe, elle va de 5 000 à 15 000 €</td></tr>
+<tr><td>Analyse d'intégration</td><td>facturée à l'heure, tarif inconnu</td><td>Passage obligé vers le « NET4 particular ». Tant qu'elle n'est pas commandée, le sens retour n'a pas de prix</td></tr>
+<tr><td>Développement du sens retour</td><td>non chiffré</td><td>Statut du contrat et du CPD, alta, heures validées, facture et encaissement, marge par mission, échéances de documents</td></tr>
+</table></div>
+
+<h3>Ce que ça donne, à 300 travailleurs par mois</h3>
+
+<div class="scroll"><table>
+<tr><th>Hypothèse 300 travailleurs par mois</th><th>Année 1</th><th>Année 2</th><th>Année 3</th><th>Cumul 3 ans</th></tr>
+<tr><td>Licence, engagement de 3 ans</td><td>12 600 €</td><td>15 300 €</td><td>18 000 €</td><td>45 900 €</td></tr>
+<tr><td>Licence, prix de liste sans engagement</td><td>18 000 €</td><td>18 000 €</td><td>18 000 €</td><td>54 000 €</td></tr>
+<tr><td>API et Serviconvenios</td><td>1 920 €</td><td>1 920 €</td><td>1 920 €</td><td>5 760 €</td></tr>
+<tr class="tot"><td><strong>Total engagé, hors lignes non chiffrées</strong></td><td><strong>14 520 €</strong></td><td><strong>17 220 €</strong></td><td><strong>19 920 €</strong></td><td><strong>51 660 €</strong></td></tr>
+</table></div>
+
+<p>Quatre postes restent hors de ce total et aucun n'est marginal : la mise en service, le serveur dédié, l'analyse d'intégration et le développement du sens retour.</p>
+
+<h3>Les trois lectures qui comptent</h3>
+
+<p><strong>Le réseau ne coûte rien.</strong> À 300 travailleurs, la facture est la même avec trente conseillers ou cent vingt. Rapporté à trente conseillers, l'ERP revient à 484 € par conseiller et par an, quand le seul jobboard en coûte 667 en France. <strong>Le back-office réglementaire coûte moins cher que la diffusion d'annonces</strong>, et c'est contre-intuitif.</p>
+
+<p><strong>Le prix payé monte de 43 % en trois ans</strong>, de 3,50 à 5,00 €. Ce qui est garanti, c'est le plafond de 5 €, donc l'absence d'indexation au-delà du prix de liste. Sur un marché où le groupe pratique des hausses de 10 à 20 % par an, ce plafond vaut quelque chose, mais ce n'est pas une garantie de prix.</p>
+
+<p><strong>Le seul vrai repère de comparaison reste e-OER</strong>, qui s'est retiré : socle de 400 à 500 € par mois pour 200 travailleurs, 12 € par conseiller et par mois, mise en service de 3 000 à 4 000 €. À trente conseillers et trois cents travailleurs, il se situait autour de 860 à 960 € par mois, contre 1 050 € pour NET4 la première année et 1 500 € au prix de liste. <strong>NET4 est donc cher sans être hors marché.</strong></p>
+
+<div class="warn">
+<p><strong>La question qui commande tout le budget de la première année n'a pas de réponse.</strong> Les 300 travailleurs par mois conditionnent le tarif de 3,50 €. Minimum facturé ou estimation de volume ? Slash démarre à zéro. Si c'est un plancher, l'année 1 coûte 12 600 € même avec vingt intérimaires. La question est posée à l'éditeur le 5 octobre, avec la grille par paliers à 50, 100, 200 et 300 travailleurs, avec et sans engagement.</p>
+</div>
+
+<h3>Ce qu'il faut obtenir avant de signer</h3>
+
+<ul class="check">
+<li>Le statut des 300 travailleurs par mois, plancher ou estimation, et la grille par paliers</li>
+<li>Ce que recouvre « 2026/2027 », une année de contrat ou deux</li>
+<li>Le prix de l'utilisateur supplémentaire au démarrage, quand l'inclusion par tranche de 50 travailleurs ne suffit pas</li>
+<li>La mise en service : périmètre, montant, délai de déploiement</li>
+<li>Le coût du serveur dédié, et où réside le certificat digital de la société</li>
+<li>Le tarif horaire de l'analyse d'intégration, et son volume estimé</li>
+<li>Le coût de sortie : format d'export, délai, préavis</li>
+</ul>
+
+<h2 id="cdc"><span class="no">9</span> Le one-pager traduit en Espagne</h2>
 <p>Chaque besoin décrit dans le one-pager plateforme, son équivalent réglementaire espagnol, et qui le couvre dans l'architecture retenue.</p>
 
 <div class="note">
@@ -594,7 +650,7 @@ p,li,td{color:#cdd2da}.card{background:#171a20}.card.later{background:#15181d}
 <p><strong>Deux réserves sur ce tarif.</strong> Le prix engagé passe de 3,50 à 5,00 € en trois ans, soit 43 % de hausse sur le prix payé : ce qui est garanti, c'est le plafond de 5 €, pas le prix. Et les 300 travailleurs par mois conditionnent toute la grille, sans qu'on sache encore s'il s'agit d'un minimum facturé ou d'une estimation. La question est posée à l'éditeur le 5 octobre.</p>
 </div>
 
-<h2 id="outsiders"><span class="no">9</span> Les outsiders et les émergents</h2>
+<h2 id="outsiders"><span class="no">10</span> Les outsiders et les émergents</h2>
 <p>Rien d'indispensable au lancement, mais plusieurs briques à fort potentiel pour l'année qui vient.</p>
 
 <div class="scroll"><table>
@@ -617,7 +673,7 @@ p,li,td{color:#cdd2da}.card{background:#171a20}.card.later{background:#15181d}
 <p>D'où la question de gouvernance à trancher avant le premier recrutement de conseiller : <strong>à qui appartient le portefeuille d'un conseiller qui s'en va ?</strong> Elle se règle dans l'architecture des données autant que dans le contrat.</p>
 </div>
 
-<h2 id="contacts"><span class="no">10</span> Les contacts commerciaux</h2>
+<h2 id="contacts"><span class="no">11</span> Les contacts commerciaux</h2>
 <div class="scroll"><table>
 <tr><th>Organisation</th><th>Rôle dans le pack</th><th>Canal</th></tr>
 <tr><td>Nivel IV / NET4</td><td>ERP, la référence</td><td>info@niveliv.es &middot; +34 986 213 194</td></tr>
@@ -633,7 +689,7 @@ p,li,td{color:#cdd2da}.card{background:#171a20}.card.later{background:#15181d}
 </table></div>
 <p style="font-size:14px;color:var(--mut)">Deux registres officiels pour vérifier par vous-mêmes : SERPA pour les accréditations des services de prévention, SIGETT pour la liste des ETT autorisées.</p>
 
-<h2 id="ouvert"><span class="no">11</span> Ce qui reste ouvert</h2>
+<h2 id="ouvert"><span class="no">12</span> Ce qui reste ouvert</h2>
 
 <h3>Les trois zones non vérifiées</h3>
 <div class="warn">
