@@ -1,6 +1,6 @@
 <!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<html lang="fr"><head>
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Benchmark outils Espagne</title>
 <style>
 :root{--ink:#16181d;--mut:#5c626e;--line:#e3e5ea;--bg:#fff;--soft:#f7f8fa;--acc:#1f4fd8;--warn:#b4341f;--ok:#1a7a4c}
@@ -535,71 +535,64 @@ p,li,td{color:#cdd2da}.card{background:#171a20}.card.later{background:#15181d}
 </div>
 
 <h2 id="cdc"><span class="no">8</span> Le one-pager traduit en Espagne</h2>
-<p>Chaque besoin décrit dans le one-pager plateforme, son équivalent réglementaire espagnol, et qui le couvre dans le pack transitoire.</p>
+<p>Chaque besoin décrit dans le one-pager plateforme, son équivalent réglementaire espagnol, et qui le couvre dans l'architecture retenue.</p>
+
+<div class="note">
+<p><strong>Mise à jour du 5 octobre.</strong> L'architecture retenue est la plateforme Slash en poste de travail du conseiller, NET4 en back-office. Les options d'ATS externe sont écartées, et avec elles l'arbitrage sur l'achat d'un CRM. Les chapitres 4, 6 et 7 décrivent le scénario précédent et sont conservés comme historique de l'instruction.</p>
+</div>
 
 <div class="scroll"><table>
 <tr><th>Besoin</th><th>Équivalent espagnol</th><th>Couvert par</th></tr>
-<tr><td>Création client par numéro d'entreprise avec pré-remplissage officiel</td><td>NIF ou CIF, Registre du commerce</td><td>Résolu par une API de vérification, de 0 à 40 €/mois. Le lookup natif de l'ERP reste à vérifier.</td></tr>
-<tr><td>Vérification d'assurabilité conditionnant le droit de travailler avec le client</td><td>Assurance-crédit</td><td>Solutions identifiées, mais <strong>aucun ERP ne l'intègre nativement</strong> : contrat à part et contrôle à la création du client</td></tr>
-<tr><td>Contrats de mission et avenants, validation par le siège</td><td>Contrat de mise à disposition au format obligatoire, plus le contrat de travail</td><td>NET4, à démontrer le 17 septembre. Le circuit à deux niveaux a été vu à l'écran chez e-OER, éditeur depuis retiré : c'est la preuve que le marché espagnol sait le faire, pas une option disponible.</td></tr>
-<tr><td>Déclaration d'embauche à chaque contrat</td><td>Alta à la Sécurité sociale et déclaration au SEPE</td><td>Documenté chez NET4, qui a confirmé par écrit que le fichier est généré par son logiciel quel que soit l'hébergement. Sur la voie utilisée par un logiciel de paie, la transmission est faite par SILTRA, l'application de la Sécurité sociale installée chez vous : <strong>ce qui se compare, c'est le degré d'automatisation du passage de relais</strong>, et il dépend du mode d'hébergement du logiciel.</td></tr>
-<tr><td><strong>Obligation sans équivalent français</strong></td><td>Relación mensuelle des contrats de mise à disposition à l'autorité du travail, dans les dix premiers jours de chaque mois, une par centre de travail, <strong>obligatoire même à zéro contrat</strong></td><td><strong>Aucun éditeur encore en lice ne le documente.</strong> e-OER, retiré, avait un module sans écran montré. C'est le point 2 de la démonstration NET4 du 17 septembre.</td></tr>
-<tr><td>Contrôle réglementaire du salaire minimum actualisé</td><td>Salaire minimum et surtout convenios colectivos, la vraie complexité espagnole</td><td>NET4, avec un service dédié à la mise à jour des convenios. Pour mémoire, e-OER, retiré, le facturait 12,95 €/mois.</td></tr>
-<tr><td>Signature électronique côté client et côté intérimaire</td><td>Identique</td><td>Intégrée chez NET4, à plus de 500 000 documents par mois, ce qui supprime une ligne de budget. Sinon un prestataire à 14 à 30 €/mois.</td></tr>
-<tr><td>Relevés d'heures hebdomadaires et validation</td><td>Partes de horas</td><td>Portail NET4, avec pointage par WhatsApp. La lecture par IA de feuilles scannées restera un apport de votre plateforme.</td></tr>
-<tr><td>Aléas de mission : accident, arrêt maladie, intempérie</td><td>Système Delt@, où <strong>c'est l'ETT qui déclare</strong> : sous cinq jours ouvrés en cas d'arrêt, sous 24 heures si l'accident est grave. La Catalogne et le Pays basque ont leurs propres canaux.</td><td><strong>Non documenté chez NET4</strong>, à vérifier le 17 septembre. e-OER, retiré, avait un module avec écran dédié.</td></tr>
-<tr><td>Facturation, relance des impayés, blocage commercial</td><td>Identique, aux nouveaux formats fiscaux</td><td>Couverte chez NET4. Relances et blocage automatiques à vérifier.</td></tr>
-<tr><td>ATS intégré : commandes, annonces, multidiffusion, pipeline, lecture de CV</td><td>Multidiffusion InfoJobs et Indeed</td><td>Viterbit publie sur InfoJobs en natif. <strong>Zoho n'y publie pas</strong>, confirmé par l'éditeur en démonstration. <strong>L'accès à la CVthèque InfoJobs n'existe chez aucun des deux.</strong> S'ajoutent les packs d'annonces, à négocier.</td></tr>
-<tr><td><strong>Suivi commercial du conseiller</strong> : prospect, étapes de démarchage, relances datées</td><td>Identique</td><td><strong>Aucun ATS du panel ne le porte, Viterbit compris.</strong> Deux voies, acheter un CRM léger ou le développer, comparées en fin de chapitre. Le cloisonnement entre conseillers les départage.</td></tr>
-<tr><td>Intérimaire sans compte : liens sécurisés, dépôt de pièces</td><td>Identique, plus la collecte du numéro d'identité, du numéro de Sécurité sociale et de l'IBAN</td><td>Partiel : les portails ERP exigent un compte. Option de vérification d'identité à 0,40 à 0,63 € l'unité.</td></tr>
-<tr><td>Siège : files de validation, marges par contrat, commissions par conseiller</td><td>Identique</td><td><strong>Le calcul de commissions du réseau n'existe dans aucun outil du marché.</strong> À garder hors périmètre : un tableur au démarrage, la plateforme le portera.</td></tr>
-<tr><td>Simulateur de marge du conseiller</td><td>Recalcul complet : salaire au convenio de l'entreprise utilisatrice, primes annuelles proratisées, indemnité de fin de contrat d'environ douze jours par an. L'indemnité française n'existe pas telle quelle.</td><td>La plateforme, paramétrée pour l'Espagne. L'ERP fournit les barèmes de convenios.</td></tr>
-<tr><td>Vigilance sur les documents échus</td><td>Pièce d'identité, permis de travail, certificat d'aptitude médicale, formations sécurité</td><td>La plateforme, alimentée par l'ERP et par le service de prévention. <strong>Point non vérifié :</strong> aucun des deux ERP ne documente le certificat d'aptitude, et aucun n'a été interrogé sur le blocage d'une mise à disposition quand l'aptitude manque ou a expiré.</td></tr>
+<tr><td>Création client par numéro d'entreprise avec pré-remplissage officiel</td><td>NIF ou CIF, Registre du commerce</td><td>La plateforme, qui le fait déjà en France sur le SIRET. En Espagne, une API de vérification de 0 à 40 €/mois. Le client part ensuite dans NET4 par <strong>InsertarCliente</strong>, qui existe.</td></tr>
+<tr><td>Vérification d'assurabilité conditionnant le droit de travailler avec le client</td><td>Assurance-crédit</td><td>Inchangé : aucun ERP ne l'intègre nativement. Contrat à part, contrôle à la création du client, côté plateforme.</td></tr>
+<tr><td>Contrats de mission et avenants, validation par le siège</td><td>Contrat de mise à disposition au format obligatoire, plus le contrat de travail</td><td><strong>NET4, démontré le 17 septembre</strong> : le CPD et le contrat de travail se génèrent ensemble, un par personne ou un pour tout le groupe, puis partent en signature vers le portail client et l'application du travailleur. La file de validation du siège reste dans la plateforme, qui la porte déjà.</td></tr>
+<tr><td>Déclaration d'embauche à chaque contrat</td><td>Alta à la Sécurité sociale et déclaration au SEPE</td><td>NET4. L'alta est annoncée automatique, « el trámite de alta desde NET4 llama al organismo ». <strong>Dit, pas montré.</strong> Où réside le certificat digital et qui répond si un envoi échoue restent à faire écrire.</td></tr>
+<tr><td>Obligation sans équivalent français</td><td>Relación mensuelle des contrats de mise à disposition à l'autorité du travail, dans les dix premiers jours, une par centre de travail, même à zéro contrat</td><td><strong>Réglé, démontré le 17 septembre.</strong> Écran dédié, case « Aplicar modelo BOE 284 del 25/11/2024 », c'est à dire l'Orden TES/1324/2024 en vigueur, code SIGETT par agence et génération du fichier. Le dépôt sur SIGETT reste manuel. Le mois à zéro contrat n'a pas été testé.</td></tr>
+<tr><td>Contrôle réglementaire du salaire actualisé</td><td>Convenios colectivos</td><td>NET4 via Serviconvenios, 2 060 convenios, <strong>85 €/mois en abonnement séparé</strong>. Le point à connaître : les convenios ne se chargent pas dans NET4, les prix et conditions se saisissent au fur et à mesure de leur utilisation.</td></tr>
+<tr><td>Signature électronique côté client et côté intérimaire</td><td>Identique</td><td>NET4, intégrée et vue à l'écran, envoi depuis l'outil et signature par SMS. Supprime une ligne de budget.</td></tr>
+<tr><td>Relevés d'heures hebdomadaires et validation</td><td>Partes de horas</td><td>NET4, démontré : pointage depuis l'application du travailleur, géolocalisé, refusé quand il est trop loin du poste. La validation des heures par le client avant facturation est décrite, pas montrée.</td></tr>
+<tr><td>Aléas de mission : accident, arrêt maladie, intempérie</td><td>Système Delt@, déclaré par l'ETT sous cinq jours ouvrés, vingt-quatre heures si l'accident est grave</td><td><strong>Toujours pas traité.</strong> Les arrêts maladie remontent depuis la Sécurité sociale, confirmé par écrit et redit en démonstration. Les accidents et Delt@ n'ont jamais été abordés, malgré deux demandes.</td></tr>
+<tr><td>Facturation, relance des impayés, blocage commercial</td><td>Identique, aux nouveaux formats fiscaux</td><td>NET4, décrit, avec génération depuis les heures validées. La facture avec coefficient et marge n'a pas été ouverte à l'écran.</td></tr>
+<tr><td>ATS intégré : commandes, annonces, multidiffusion, pipeline, lecture de CV</td><td>Multidiffusion InfoJobs et Indeed</td><td><strong>La plateforme.</strong> Conséquence directe du retrait de l'ATS externe : la publication sur InfoJobs doit partir de la plateforme, ce qui suppose l'accord Partners d'InfoJobs. Demandé le 21 septembre, transféré en interne par leur service données, sans réponse depuis. <strong>C'est le chemin critique du sourcing.</strong></td></tr>
+<tr><td>WhatsApp comme canal candidat</td><td>Identique, canal décisif sur le blue collar</td><td><strong>À ajouter.</strong> Il venait avec l'ATS écarté. Soit la plateforme l'intègre, soit un fournisseur local à 89 à 150 €/mois plus le coût des messages.</td></tr>
+<tr><td>Suivi commercial du conseiller : prospect, étapes, relances datées</td><td>Identique</td><td><strong>La plateforme.</strong> La question d'acheter un CRM est fermée, et avec elle le budget de développement d'un carnet.</td></tr>
+<tr><td>Intérimaire sans compte : liens sécurisés, dépôt de pièces</td><td>Identique, plus la collecte du DNI ou NIE, du numéro de Sécurité sociale et de l'IBAN</td><td>Partiel. Les portails NET4 exigent un compte, la plateforme porte le parcours sans compte. <strong>Un arbitrage à prendre : le travailleur ne doit pas se retrouver avec deux applications.</strong></td></tr>
+<tr><td>Siège : files de validation, marges par contrat, commissions par conseiller</td><td>Identique</td><td>La plateforme pour les files et les commissions. <strong>Les marges par contrat vivent dans NET4, et rien dans son API standard ne les restitue.</strong></td></tr>
+<tr><td>Simulateur de marge du conseiller</td><td>Recalcul au convenio de l'entreprise utilisatrice, primes proratisées, indemnité de fin de contrat</td><td><strong>NET4 le fait, démontré le 17 septembre</strong> : convenio du client pré-rempli, tarif horaire 21,07 € et coefficient 1,582 calculés devant moi. Mais il vit dans NET4. Soit la plateforme appelle ce calcul, et c'est un flux à chiffrer, soit le conseiller ouvre NET4, et il lui faut un compte.</td></tr>
+<tr><td>Vigilance sur les documents échus</td><td>Pièce d'identité, permis de travail, certificat d'aptitude médicale, formations sécurité</td><td>NET4 les suit et peut bloquer un contrat tant qu'une pièce manque, les « stoppers », décrits et non montrés. La formation PRL passe par Humact, intégré chez eux. <strong>Rien de tout cela ne remonte aujourd'hui dans la plateforme.</strong></td></tr>
 </table></div>
 
-<div class="note">
-<p><strong>Lecture d'ensemble : le pack transitoire couvre l'essentiel.</strong> Trois besoins seulement échappent au marché : le calcul des commissions du réseau, la lecture par IA des documents, et le parcours intérimaire sans compte. Ce sont précisément les trois choses que votre plateforme apporte. Le transitoire n'a pas à les répliquer.</p>
-<p>Le marché confirme le pari : <strong>aucune plateforme de réseau de conseillers clé en main n'existe en Espagne.</strong> Les précédents connus, quand un groupe a voulu ce modèle, ont tous dû construire ou racheter la leur.</p>
-</div>
+<h3>Ce que l'architecture retenue laisse à construire</h3>
 
-<h3>L'arbitrage qui reste : acheter le suivi commercial ou le développer</h3>
-<p>La plateforme française ne se connecte pas la première année, et le CRM sera externe. Reste à décider s'il s'achète ou s'il se construit. Trois fonctions sont en jeu, et trois seulement : le prospect, les étapes de démarchage, et les relances avec échéance. La fiche client, les commandes, la facturation, le coefficient et la marge sont chez l'ERP.</p>
-<p><strong>C'est le cloisonnement entre conseillers qui départage les deux voies.</strong> Un conseiller ne doit pas voir le portefeuille d'un autre. Chez tous les éditeurs du marché, cette fonction est vendue au palier haut.</p>
-<p><strong>Et un second critère compte autant, parce que cet outil est transitoire.</strong> Il sera remplacé par votre plateforme une fois adaptée à l'Espagne. La comparaison ne se fait donc pas sur un horizon arbitraire mais sur sa durée de vie réelle, et <strong>la qualité de la sortie devient un critère de choix</strong> : quand la plateforme arrivera, il faudra extraire les prospects, les étapes et l'historique des relances pour les y verser. Zoho et HubSpot exportent par API. C'est à vérifier au même titre que le cloisonnement.</p>
+<p>L'API standard de NET4 a été reçue le 21 septembre, en quarante-cinq pages. Elle écrit dans NET4 les clients, les centres de travail, les travailleurs et les candidats, elle lit ces mêmes données et toutes les tables de référence, convenios compris. L'éditeur a confirmé par écrit deux points : <strong>consommation illimitée</strong>, et <strong>aucun webhook</strong>.</p>
 
-<div class="scroll"><table>
-<tr><th>Option<br><span style="font-weight:400;color:var(--mut);font-size:12px">prix par conseiller et par mois</span></th><th>Cloisonnement entre conseillers</th><th>Ce que l'intégration à Viterbit demande</th><th class="num">Année 1<br><span style="font-weight:400;color:var(--mut);font-size:12px">réseau de 30</span></th><th class="num">Sur 3 ans<br><span style="font-weight:400;color:var(--mut);font-size:12px">30 puis 60 et 120</span></th></tr>
-<tr><td>Zoho Bigin Express, 6,50 €/conseiller/mois</td><td>Profils et rôles annoncés, restriction de visibilité non documentée</td><td>Retour depuis l'ATS sans code. Aller vers l'ATS à construire</td><td class="num">4 340 €</td><td class="num">18 380 €</td></tr>
-<tr><td>HubSpot Starter, 7 €</td><td>Aucun</td><td><strong>Le seul chemin déjà parcouru</strong> : Viterbit confirme par écrit que deux agences clientes l'ont branché par leur propre développement</td><td class="num">4 520 €</td><td class="num">19 640 €</td></tr>
-<tr><td><strong>Zoho Bigin Premier, 11 €</strong></td><td><strong>Rôles dès le palier bas, à vérifier</strong></td><td>Identique à Express</td><td class="num">5 960 €</td><td class="num">29 720 €</td></tr>
-<tr><td>Pipedrive Lite, 14 €</td><td>Aucun</td><td>Retour sans code, aller à construire</td><td class="num">7 040 €</td><td class="num">37 280 €</td></tr>
-<tr><td>Attio Plus, 39 €</td><td>Permissions de base, pas de restriction par enregistrement</td><td><strong>Le mieux outillé du panel : API et webhooks inclus dès le plan gratuit</strong></td><td class="num">16 040 €</td><td class="num">100 280 €</td></tr>
-<tr><td>Pipedrive Premium, 59 €</td><td>Oui, visibilité individuelle</td><td>Identique à Lite</td><td class="num">23 240 €</td><td class="num">150 680 €</td></tr>
-<tr><td>HubSpot Pro, 90 €</td><td>Oui, permissions et répartition</td><td>Le mieux outillé : action webhook native, sans outil tiers</td><td class="num">34 400 €</td><td class="num">228 800 €</td></tr>
-<tr><td>Attio Pro, 93 €</td><td>Oui, visibilité granulaire par utilisateur et par équipe</td><td>Identique à Plus</td><td class="num">35 480 €</td><td class="num">236 360 €</td></tr>
-<tr class="tot"><td>Carnet développé</td><td>Dans le modèle de données dès le départ</td><td>Le lien fait partie du chantier au lieu de s'y ajouter</td><td class="num">4 400 à 6 400 €</td><td class="num">5 200 à 7 200 €</td></tr>
-</table></div>
-<p style="font-size:14px;color:var(--mut)">Hypothèse commune : trente conseillers la première année, soixante la deuxième, cent vingt la troisième. Tarifs relevés sur les grilles publiques en facturation annuelle. Le connecteur, deux mille euros, est compté dans chaque ligne de location : il est à écrire dans tous les cas. Dans le carnet développé il fait partie du chantier, dont le chiffrage, entre 4 000 et 6 000 €, vient d'un développeur connu de l'équipe. Sa seule charge récurrente est l'hébergement, environ 400 € par an.</p>
-<div class="note">
-<p><strong>L'écart ne vient pas du prix unitaire mais du modèle de facturation.</strong> Le carnet ne paye aucune licence par conseiller, c'est à dire précisément le poste qui double chaque année. Sur trois ans, les options qui offrent un vrai cloisonnement coûtent <strong>vingt à quarante-cinq fois</strong> le développement, jusqu'à 236 360 €. Et même la location la moins chère, dont le cloisonnement n'est pas documenté, revient à près de trois fois son prix.</p>
-<p><strong>Quatre produits seulement passent sous quinze euros, et deux tombent sur le cloisonnement.</strong> HubSpot Starter et Pipedrive Lite n'en ont aucun, et il leur coûte respectivement 90 et 59 € par conseiller et par mois. Il ne reste que Zoho Bigin, dans ses deux paliers, seul produit bon marché à annoncer des profils et des rôles.</p>
-<p><strong>Si le carnet n'est pas prêt au démarrage des premiers conseillers, le relais est Bigin Express à 6,50 €</strong>, et non Premier, puisque les deux annoncent la même gestion des rôles et que l'écart fait 1 620 € par an à trente conseillers. Une demi-journée de vérification suffit alors : créer trois utilisateurs, faire créer un client par le premier, vérifier que le deuxième ne le voit ni par la recherche ni par un rapport, vérifier que le siège voit les deux, et vérifier qu'on peut bloquer l'export de la base.</p>
-<p>Attio mérite une mention à part. Il est le seul à inclure l'API et les webhooks dès son plan gratuit, limité à trois utilisateurs. Trop cher comme socle, il sert en revanche à <strong>maquetter gratuitement le raccordement à l'ATS</strong> avant d'engager quoi que ce soit, puis à transposer sur le CRM retenu.</p>
-</div>
-<h4>Le point de bascule dépend de la durée de vie de l'outil</h4>
-<div class="scroll"><table>
-<tr><th>Cumulé pour le réseau entier<br><span style="font-weight:400;color:var(--mut);font-size:12px">connecteur compris</span></th><th class="num">Fin année 1</th><th class="num">Fin année 2</th><th class="num">Fin année 3</th><th class="num">Fin année 4</th></tr>
-<tr><td>Bigin Express loué<br><span style="color:var(--mut);font-size:13.5px">30 puis 60, 120 et 240 conseillers</span></td><td class="num">4 340 €</td><td class="num">9 020 €</td><td class="num">18 380 €</td><td class="num">37 100 €</td></tr>
-<tr class="tot"><td>Carnet développé</td><td class="num">4 400 à 6 400 €</td><td class="num">4 800 à 6 800 €</td><td class="num">5 200 à 7 200 €</td><td class="num">5 600 à 7 600 €</td></tr>
-</table></div>
-<p><strong>Le point de bascule se situe entre le treizième et le dix-huitième mois.</strong> Sur la première année, la location reste moins chère, de 60 € dans l'hypothèse basse à 2 060 € dans la haute. Ensuite le carnet passe devant et l'écart se creuse, parce qu'il échappe au prix au siège quand le réseau double. <strong>À quatre ans, il coûte 5 600 à 7 600 € quand la location en coûte 37 100.</strong></p>
-<p>Le développement est chiffré entre 4 000 et 6 000 € par un développeur connu de l'équipe, connecteur vers l'ATS compris. La seule charge récurrente est l'hébergement, environ 400 € par an : un outil livré ne se paye pas en abonnement. Reste une éventualité à provisionner, sans périodicité : si Viterbit modifie son API, le connecteur devra être repris.</p>
 <div class="warn">
-<p><strong>Le carnet développé est la recommandation.</strong> Il coûte 60 à 2 060 € de plus que la location sur la première année, puis passe devant entre le treizième et le dix-huitième mois. Il porte le cloisonnement dans son modèle de données au lieu de l'acheter au palier haut, il appelle l'API de l'ATS sans intermédiaire, et ses données appartiennent à Slash, ce qui rend la bascule vers la plateforme immédiate le jour venu.</p>
-<p><strong>Le seul avantage qui reste à la location, c'est le délai.</strong> Un CRM du commerce est disponible le jour même, le carnet demande quelques semaines. Si les premiers conseillers démarrent avant qu'il soit prêt, Bigin Express sert de relais quelques semaines, puis on jette. Ce n'est pas un choix d'architecture, c'est un calage de calendrier.</p>
+<p><strong>Le sens retour n'existe pas.</strong> Ni le statut du contrat et du CPD, ni l'alta, ni les heures validées, ni la facture et son encaissement, ni la marge par mission, ni les échéances de documents. C'est exactement la moitié de la demande : déverser dans NET4 fonctionne, récupérer dans la plateforme reste à développer.</p>
 </div>
 
-<p><strong>Un point technique qui penche du même côté.</strong> L'API de Viterbit propose des permissions granulaires par domaine et une restriction par adresse IP. Ces protections ne servent que si le code appelant vous appartient : en passant par un outil d'automatisation tiers, la clé vit chez lui et la liste d'adresses autorisées devient la sienne. Dans un projet dont l'exigence centrale est le cloisonnement, cela compte.</p>
+<p>L'éditeur l'a cadré par écrit le 25 septembre : son standard ne prévoit pas d'intégration avec une plateforme extérieure qui reprendrait une partie du processus, à trois exceptions près, l'ATS Viterbit, la plateforme de formation Humact et un outil comptable. Tout le reste devient un « NET4 particular », qui commence par <strong>une proposition d'analyse facturée à l'heure</strong> avant tout chiffrage. Des clients ont des dizaines de méthodes et des webhooks sur mesure, donc c'est faisable, mais c'est du développement propre, jamais mutualisé.</p>
+
+<h3>Ce que ça coûte, en l'état</h3>
+
+<div class="scroll"><table>
+<tr><th>Poste</th><th>Prix annoncé</th><th>À 300 travailleurs par mois, par an</th></tr>
+<tr><td>Licence NET4 complète, prix de liste<br><span class="pf">Paie et ETT, application du travailleur, portails travailleur et client</span></td><td>5,00 € par travailleur et par mois</td><td>18 000 €</td></tr>
+<tr><td>Licence, engagement de trois ans, année 1</td><td>3,50 €</td><td><strong>12 600 €</strong></td></tr>
+<tr><td>Licence, année 2</td><td>4,25 €</td><td>15 300 €</td></tr>
+<tr><td>Licence, année 3</td><td>5,00 €</td><td>18 000 €</td></tr>
+<tr><td>API Trabajadores et Clientes</td><td>75 €/mois</td><td>900 €</td></tr>
+<tr><td>Serviconvenios</td><td>85 €/mois</td><td>1 020 €</td></tr>
+<tr><td>Mise en service</td><td>jamais chiffrée</td><td>inconnue</td></tr>
+<tr><td>Analyse d'intégration, facturée à l'heure</td><td>jamais chiffrée</td><td>inconnue</td></tr>
+<tr><td>Développement du sens retour</td><td>jamais chiffré</td><td>inconnu</td></tr>
+<tr class="tot"><td>Première année, hors les trois lignes inconnues</td><td></td><td><strong>14 520 €</strong></td></tr>
+</table></div>
+
+<p>Six utilisateurs nominatifs sont inclus, un de plus par tranche de cinquante travailleurs facturés par mois. L'unité de facturation est donc le travailleur, jamais le conseiller : <strong>trente ou cent vingt conseillers produisent la même facture</strong>, ce qui colle au modèle mandataire mieux que tout ce qui a été instruit jusqu'ici.</p>
+
+<div class="warn">
+<p><strong>Deux réserves sur ce tarif.</strong> Le prix engagé passe de 3,50 à 5,00 € en trois ans, soit 43 % de hausse sur le prix payé : ce qui est garanti, c'est le plafond de 5 €, pas le prix. Et les 300 travailleurs par mois conditionnent toute la grille, sans qu'on sache encore s'il s'agit d'un minimum facturé ou d'une estimation. La question est posée à l'éditeur le 5 octobre.</p>
+</div>
 
 <h2 id="outsiders"><span class="no">9</span> Les outsiders et les émergents</h2>
 <p>Rien d'indispensable au lancement, mais plusieurs briques à fort potentiel pour l'année qui vient.</p>
